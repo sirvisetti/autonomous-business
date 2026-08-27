@@ -1,0 +1,13 @@
+abcs: "0.1"
+id: procurement.purchase-order.get
+title: Get Purchase Order
+domain: procurement
+resource: purchase-order
+operation: get
+summary: Retrieve one purchase order by a supported identifier.
+contracts:
+  input: schemas/procurement/purchase-order-get-input.json
+  output: schemas/procurement/purchase-order.json
+relationships:
+  related:
+    - procurement.purchase-order.search
