@@ -1,0 +1,20 @@
+abcs: '0.2'
+id: hr.position
+version: '0.2'
+title: Position
+domain: hr
+summary: A defined organizational work position that may be planned, open, filled, frozen, or closed.
+schema: schemas/objects/hr/position.schema.json
+keys:
+- name: position-code
+  primary: true
+  fields: [code]
+  scope: [employer]
+relationships:
+  reportsTo: {target: hr.position, cardinality: one, required: false}
+stateDimensions:
+  lifecycle: [planned, open, filled, frozen, closed]
+capabilities: [hr.position.get, hr.position.search]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

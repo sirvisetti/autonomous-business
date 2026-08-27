@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: hr.leave-request.submit
+version: '0.2'
+title: Submit Leave Request
+domain: hr
+kind: command
+summary: Submit a worker leave request for the applicable business review and approval.
+objects:
+- object: hr.leave-request
+  role: primary
+input: {schema: schemas/objects/hr/leave-request.schema.json}
+output: {schema: schemas/objects/hr/leave-request.schema.json}
+preconditions: {lifecycle: draft}
+effects: {lifecycle: submitted, approval: pending}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

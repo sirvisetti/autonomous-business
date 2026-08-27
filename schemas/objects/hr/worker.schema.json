@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/hr/worker.schema.json",
+  "title": "ABCS HR Worker",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "person", "employer", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "person": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "employer": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "position": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "manager": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "hireDate": {"type": "string", "format": "date"},
+    "terminationDate": {"type": "string", "format": "date"},
+    "workerType": {"type": "string", "enum": ["employee", "contingent", "other"]},
+    "status": {"type": "object", "additionalProperties": false, "required": ["lifecycle"], "properties": {"lifecycle": {"type": "string", "enum": ["pre-hire", "active", "suspended", "terminated"]}}}
+  }
+}

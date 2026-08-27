@@ -1,0 +1,19 @@
+abcs: '0.2'
+id: hr.payroll-run
+version: '0.2'
+title: Payroll Run
+domain: hr
+summary: A business payroll cycle for a defined population and pay period, including review, scheduling, and approval.
+schema: schemas/objects/hr/payroll-run.schema.json
+keys:
+- name: payroll-run-number
+  primary: true
+  fields: [number]
+  scope: [employer]
+stateDimensions:
+  lifecycle: [draft, scheduled, processing, completed, cancelled]
+  approval: [not-submitted, pending, approved, rejected]
+capabilities: [hr.payroll-run.get, hr.payroll-run.create, hr.payroll-run.schedule, hr.payroll-run.approve]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,25 @@
+abcs: '0.2'
+id: sales.sales-order
+version: '0.2'
+title: Sales Order
+domain: sales
+summary: A commercial order accepted by a seller for delivery of goods or services to a customer.
+schema: schemas/objects/sales/sales-order.schema.json
+keys:
+- name: sales-order-number
+  primary: true
+  fields: [number]
+  scope: [seller]
+relationships:
+  customer: {target: sales.customer, cardinality: one, required: true}
+  quote: {target: sales.quote, cardinality: one, required: false}
+  returns: {target: sales.return, cardinality: many, required: false}
+  invoices: {target: finance.invoice, cardinality: many, required: false}
+stateDimensions:
+  lifecycle: [draft, open, closed, cancelled]
+  fulfillment: [not-fulfilled, partially-fulfilled, fulfilled]
+  invoicing: [not-invoiced, partially-invoiced, invoiced]
+capabilities: [sales.sales-order.get, sales.sales-order.search, sales.sales-order.create, sales.sales-order.submit, sales.sales-order.cancel]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

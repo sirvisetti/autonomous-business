@@ -1,0 +1,24 @@
+abcs: '0.2'
+id: finance.payment
+version: '0.2'
+title: Payment
+domain: finance
+summary: A transfer of monetary value from a payer to a payee in satisfaction of one or more financial obligations.
+schema: schemas/objects/finance/payment.schema.json
+keys:
+- name: payment-number
+  primary: true
+  fields: [number]
+  scope: [payer]
+relationships:
+  invoices:
+    target: finance.invoice
+    cardinality: many
+    required: false
+stateDimensions:
+  lifecycle: [draft, scheduled, processing, completed, cancelled, failed]
+  approval: [not-required, not-submitted, pending, approved, rejected]
+capabilities: [finance.payment.get, finance.payment.create, finance.payment.submit, finance.payment.approve, finance.payment.cancel]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

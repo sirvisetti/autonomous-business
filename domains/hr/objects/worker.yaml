@@ -1,0 +1,21 @@
+abcs: '0.2'
+id: hr.worker
+version: '0.2'
+title: Worker
+domain: hr
+summary: A person engaged by an organization to perform work, including employees and contingent workers.
+schema: schemas/objects/hr/worker.schema.json
+keys:
+- name: worker-number
+  primary: true
+  fields: [number]
+  scope: [employer]
+relationships:
+  position: {target: hr.position, cardinality: one, required: false}
+  manager: {target: hr.worker, cardinality: one, required: false}
+stateDimensions:
+  lifecycle: [pre-hire, active, suspended, terminated]
+capabilities: [hr.worker.get, hr.worker.search]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: sales.return.approve
+version: '0.2'
+title: Approve Return
+domain: sales
+kind: command
+summary: Authorize a requested sales return.
+objects:
+- object: sales.return
+  role: primary
+input: {schema: schemas/common/approval-input.schema.json}
+output: {schema: schemas/objects/sales/return.schema.json}
+preconditions: {lifecycle: requested}
+effects: {lifecycle: authorized}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

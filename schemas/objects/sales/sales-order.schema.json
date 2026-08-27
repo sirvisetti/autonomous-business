@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/sales/sales-order.schema.json",
+  "title": "ABCS Sales Order",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "seller", "customer", "orderDate", "currency", "lines", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "seller": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "customer": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "orderDate": {"type": "string", "format": "date"},
+    "customerPurchaseOrder": {"type": "string"},
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "shipTo": {"$ref": "https://abcs.sirvisetti.com/schemas/common/address.schema.json"},
+    "billTo": {"$ref": "https://abcs.sirvisetti.com/schemas/common/address.schema.json"},
+    "quote": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "lines": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["lineNumber", "description", "quantity", "unitPrice"], "properties": {"lineNumber": {"type": "integer", "minimum": 1}, "item": {"type": "string"}, "description": {"type": "string", "minLength": 1}, "quantity": {"$ref": "https://abcs.sirvisetti.com/schemas/common/quantity.schema.json"}, "unitPrice": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}, "amount": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}, "requestedDeliveryDate": {"type": "string", "format": "date"}}}},
+    "amounts": {"type": "object", "additionalProperties": false, "properties": {"subtotal": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}, "tax": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}, "total": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}}},
+    "status": {"type": "object", "additionalProperties": false, "required": ["lifecycle", "fulfillment", "invoicing"], "properties": {"lifecycle": {"type": "string", "enum": ["draft", "open", "closed", "cancelled"]}, "fulfillment": {"type": "string", "enum": ["not-fulfilled", "partially-fulfilled", "fulfilled"]}, "invoicing": {"type": "string", "enum": ["not-invoiced", "partially-invoiced", "invoiced"]}}}
+  }
+}

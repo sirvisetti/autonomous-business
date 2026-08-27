@@ -1,0 +1,21 @@
+abcs: '0.2'
+id: finance.invoice.submit
+version: '0.2'
+title: Submit Invoice
+domain: finance
+kind: command
+summary: Submit an invoice into the applicable business review, acceptance, or processing flow.
+objects:
+- object: finance.invoice
+  role: primary
+input:
+  schema: schemas/objects/finance/invoice.schema.json
+output:
+  schema: schemas/objects/finance/invoice.schema.json
+preconditions:
+  lifecycle: draft
+effects:
+  lifecycle: issued
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

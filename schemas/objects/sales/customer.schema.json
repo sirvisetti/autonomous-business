@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/sales/customer.schema.json",
+  "title": "ABCS Sales Customer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "party", "seller", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "party": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "seller": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "billingAddress": {"$ref": "https://abcs.sirvisetti.com/schemas/common/address.schema.json"},
+    "shippingAddress": {"$ref": "https://abcs.sirvisetti.com/schemas/common/address.schema.json"},
+    "paymentTerms": {"type": "string"},
+    "status": {"type": "object", "additionalProperties": false, "required": ["lifecycle"], "properties": {"lifecycle": {"type": "string", "enum": ["prospective", "active", "on-hold", "inactive", "closed"]}}}
+  }
+}

@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: sales.quote.accept
+version: '0.2'
+title: Accept Quote
+domain: sales
+kind: command
+summary: Record the customer's business acceptance of a quote.
+objects:
+- object: sales.quote
+  role: primary
+input: {schema: schemas/common/approval-input.schema.json}
+output: {schema: schemas/objects/sales/quote.schema.json}
+preconditions: {lifecycle: issued}
+effects: {lifecycle: accepted}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

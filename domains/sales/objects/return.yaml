@@ -1,0 +1,21 @@
+abcs: '0.2'
+id: sales.return
+version: '0.2'
+title: Return
+domain: sales
+summary: A business request and disposition for goods or services being returned against an earlier sale.
+schema: schemas/objects/sales/return.schema.json
+keys:
+- name: return-number
+  primary: true
+  fields: [number]
+relationships:
+  salesOrder: {target: sales.sales-order, cardinality: one, required: true}
+  customer: {target: sales.customer, cardinality: one, required: true}
+stateDimensions:
+  lifecycle: [draft, requested, authorized, received, completed, rejected, cancelled]
+  refund: [not-required, pending, partially-refunded, refunded]
+capabilities: [sales.return.create, sales.return.approve]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

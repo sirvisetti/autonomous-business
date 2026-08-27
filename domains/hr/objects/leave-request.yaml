@@ -1,0 +1,20 @@
+abcs: '0.2'
+id: hr.leave-request
+version: '0.2'
+title: Leave Request
+domain: hr
+summary: A worker request for an approved period of absence from work.
+schema: schemas/objects/hr/leave-request.schema.json
+keys:
+- name: leave-request-number
+  primary: true
+  fields: [number]
+relationships:
+  worker: {target: hr.worker, cardinality: one, required: true}
+stateDimensions:
+  lifecycle: [draft, submitted, scheduled, in-progress, completed, cancelled]
+  approval: [not-submitted, pending, approved, rejected]
+capabilities: [hr.leave-request.get, hr.leave-request.create, hr.leave-request.submit, hr.leave-request.approve, hr.leave-request.reject, hr.leave-request.cancel]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

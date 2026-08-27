@@ -1,20 +1,21 @@
-abcs: "0.2"
+abcs: '0.2'
 domain: sales
-maturity: initial
+maturity: modeled
+objects: [sales.customer, sales.quote, sales.sales-order, sales.return]
 capabilities:
-  - {id: sales.customer.get, title: Get Customer}
-  - {id: sales.customer.search, title: Search Customers}
-  - {id: sales.customer.create, title: Create Customer}
-  - {id: sales.customer.update, title: Update Customer}
-  - {id: sales.quote.get, title: Get Quote}
-  - {id: sales.quote.create, title: Create Quote}
-  - {id: sales.quote.submit, title: Submit Quote}
-  - {id: sales.quote.accept, title: Accept Quote}
-  - {id: sales.quote.reject, title: Reject Quote}
-  - {id: sales.sales-order.get, title: Get Sales Order}
-  - {id: sales.sales-order.search, title: Search Sales Orders}
-  - {id: sales.sales-order.create, title: Create Sales Order}
-  - {id: sales.sales-order.submit, title: Submit Sales Order}
-  - {id: sales.sales-order.cancel, title: Cancel Sales Order}
-  - {id: sales.return.create, title: Create Return}
-  - {id: sales.return.approve, title: Approve Return}
+- {id: sales.customer.get, title: Get Customer}
+- {id: sales.customer.search, title: Search Customers}
+- {id: sales.customer.create, title: Create Customer}
+- {id: sales.customer.update, title: Update Customer}
+- {id: sales.quote.get, title: Get Quote}
+- {id: sales.quote.create, title: Create Quote}
+- {id: sales.quote.submit, title: Submit Quote}
+- {id: sales.quote.accept, title: Accept Quote}
+- {id: sales.quote.reject, title: Reject Quote}
+- {id: sales.sales-order.get, title: Get Sales Order}
+- {id: sales.sales-order.search, title: Search Sales Orders}
+- {id: sales.sales-order.create, title: Create Sales Order}
+- {id: sales.sales-order.submit, title: Submit Sales Order}
+- {id: sales.sales-order.cancel, title: Cancel Sales Order}
+- {id: sales.return.create, title: Create Return}
+- {id: sales.return.approve, title: Approve Return}

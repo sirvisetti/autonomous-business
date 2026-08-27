@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: sales.quote.submit
+version: '0.2'
+title: Submit Quote
+domain: sales
+kind: command
+summary: Issue or submit a commercial quote to the applicable customer.
+objects:
+- object: sales.quote
+  role: primary
+input: {schema: schemas/objects/sales/quote.schema.json}
+output: {schema: schemas/objects/sales/quote.schema.json}
+preconditions: {lifecycle: draft}
+effects: {lifecycle: issued}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

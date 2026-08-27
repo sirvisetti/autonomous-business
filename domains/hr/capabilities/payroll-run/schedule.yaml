@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: hr.payroll-run.schedule
+version: '0.2'
+title: Schedule Payroll Run
+domain: hr
+kind: command
+summary: Schedule a defined business payroll run for an intended business processing time.
+objects:
+- object: hr.payroll-run
+  role: primary
+input: {schema: schemas/objects/hr/payroll-run.schema.json}
+output: {schema: schemas/objects/hr/payroll-run.schema.json}
+preconditions: {lifecycle: draft}
+effects: {lifecycle: scheduled}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

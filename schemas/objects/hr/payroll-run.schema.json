@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/hr/payroll-run.schema.json",
+  "title": "ABCS HR Payroll Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "employer", "periodStart", "periodEnd", "payDate", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "employer": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "payrollGroup": {"type": "string"},
+    "periodStart": {"type": "string", "format": "date"},
+    "periodEnd": {"type": "string", "format": "date"},
+    "payDate": {"type": "string", "format": "date"},
+    "scheduledAt": {"type": "string", "format": "date-time"},
+    "status": {"type": "object", "additionalProperties": false, "required": ["lifecycle", "approval"], "properties": {"lifecycle": {"type": "string", "enum": ["draft", "scheduled", "processing", "completed", "cancelled"]}, "approval": {"type": "string", "enum": ["not-submitted", "pending", "approved", "rejected"]}}}
+  }
+}

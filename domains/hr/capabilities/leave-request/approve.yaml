@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: hr.leave-request.approve
+version: '0.2'
+title: Approve Leave Request
+domain: hr
+kind: command
+summary: Record an authorized approval of a worker leave request.
+objects:
+- object: hr.leave-request
+  role: primary
+input: {schema: schemas/common/approval-input.schema.json}
+output: {schema: schemas/objects/hr/leave-request.schema.json}
+preconditions: {approval: pending}
+effects: {approval: approved}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/hr/leave-request.schema.json",
+  "title": "ABCS HR Leave Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "worker", "leaveType", "startDate", "endDate", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "worker": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "leaveType": {"type": "string", "minLength": 1},
+    "startDate": {"type": "string", "format": "date"},
+    "endDate": {"type": "string", "format": "date"},
+    "duration": {"$ref": "https://abcs.sirvisetti.com/schemas/common/quantity.schema.json"},
+    "reason": {"type": "string"},
+    "status": {"type": "object", "additionalProperties": false, "required": ["lifecycle", "approval"], "properties": {"lifecycle": {"type": "string", "enum": ["draft", "submitted", "scheduled", "in-progress", "completed", "cancelled"]}, "approval": {"type": "string", "enum": ["not-submitted", "pending", "approved", "rejected"]}}}
+  }
+}

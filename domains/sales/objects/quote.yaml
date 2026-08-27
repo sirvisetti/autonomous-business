@@ -1,0 +1,23 @@
+abcs: '0.2'
+id: sales.quote
+version: '0.2'
+title: Quote
+domain: sales
+summary: A commercial offer from a seller to a customer describing proposed goods or services, prices, and terms.
+schema: schemas/objects/sales/quote.schema.json
+keys:
+- name: quote-number
+  primary: true
+  fields: [number]
+  scope: [seller]
+relationships:
+  customer:
+    target: sales.customer
+    cardinality: one
+    required: true
+stateDimensions:
+  lifecycle: [draft, issued, accepted, rejected, expired, cancelled]
+capabilities: [sales.quote.get, sales.quote.create, sales.quote.submit, sales.quote.accept, sales.quote.reject]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,13 @@
+abcs: '0.2'
+id: sales.customer.update
+version: '0.2'
+title: Update Customer
+domain: sales
+kind: command
+summary: Change permitted canonical customer business information.
+objects:
+- object: sales.customer
+  role: primary
+input: {schema: schemas/objects/sales/customer.schema.json}
+output: {schema: schemas/objects/sales/customer.schema.json}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

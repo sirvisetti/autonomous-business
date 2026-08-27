@@ -1,0 +1,21 @@
+abcs: '0.2'
+id: finance.payment-run.approve
+version: '0.2'
+title: Approve Payment Run
+domain: finance
+kind: command
+summary: Record an authorized approval of a business payment run.
+objects:
+- object: finance.payment-run
+  role: primary
+input:
+  schema: schemas/common/approval-input.schema.json
+output:
+  schema: schemas/objects/finance/payment-run.schema.json
+preconditions:
+  approval: pending
+effects:
+  approval: approved
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,17 @@
+abcs: '0.2'
+id: finance.journal-entry
+version: '0.2'
+title: Journal Entry
+domain: finance
+summary: A balanced accounting record that records debits and credits for a business transaction or adjustment.
+schema: schemas/objects/finance/journal-entry.schema.json
+keys:
+- name: journal-entry-number
+  primary: true
+  fields: [number]
+stateDimensions:
+  lifecycle: [draft, posted, reversed]
+capabilities: [finance.journal-entry.get, finance.journal-entry.create, finance.journal-entry.post, finance.journal-entry.reverse]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

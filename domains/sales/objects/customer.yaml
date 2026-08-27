@@ -1,0 +1,18 @@
+abcs: '0.2'
+id: sales.customer
+version: '0.2'
+title: Customer
+domain: sales
+summary: A party viewed in the business role of purchasing or receiving goods or services from a seller.
+schema: schemas/objects/sales/customer.schema.json
+keys:
+- name: customer-number
+  primary: true
+  fields: [number]
+  scope: [seller]
+stateDimensions:
+  lifecycle: [prospective, active, on-hold, inactive, closed]
+capabilities: [sales.customer.get, sales.customer.search, sales.customer.create, sales.customer.update]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,21 @@
+abcs: '0.2'
+id: finance.journal-entry.post
+version: '0.2'
+title: Post Journal Entry
+domain: finance
+kind: command
+summary: Post a balanced journal entry to the applicable accounting records.
+objects:
+- object: finance.journal-entry
+  role: primary
+input:
+  schema: schemas/objects/finance/journal-entry.schema.json
+output:
+  schema: schemas/objects/finance/journal-entry.schema.json
+preconditions:
+  lifecycle: draft
+effects:
+  lifecycle: posted
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

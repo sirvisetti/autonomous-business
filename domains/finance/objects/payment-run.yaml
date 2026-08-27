@@ -1,0 +1,24 @@
+abcs: '0.2'
+id: finance.payment-run
+version: '0.2'
+title: Payment Run
+domain: finance
+summary: A business grouping of payments selected, reviewed, scheduled, and executed together.
+schema: schemas/objects/finance/payment-run.schema.json
+keys:
+- name: payment-run-number
+  primary: true
+  fields: [number]
+  scope: [payer]
+relationships:
+  payments:
+    target: finance.payment
+    cardinality: many
+    required: false
+stateDimensions:
+  lifecycle: [draft, scheduled, in-progress, completed, cancelled]
+  approval: [not-submitted, pending, approved, rejected]
+capabilities: [finance.payment-run.create, finance.payment-run.schedule, finance.payment-run.approve]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

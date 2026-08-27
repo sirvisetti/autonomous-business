@@ -1,22 +1,23 @@
-abcs: "0.2"
+abcs: '0.2'
 domain: finance
-maturity: initial
+maturity: modeled
+objects: [finance.invoice, finance.payment, finance.journal-entry, finance.payment-run]
 capabilities:
-  - {id: finance.invoice.get, title: Get Invoice}
-  - {id: finance.invoice.search, title: Search Invoices}
-  - {id: finance.invoice.create, title: Create Invoice}
-  - {id: finance.invoice.submit, title: Submit Invoice}
-  - {id: finance.invoice.approve, title: Approve Invoice}
-  - {id: finance.invoice.cancel, title: Cancel Invoice}
-  - {id: finance.payment.get, title: Get Payment}
-  - {id: finance.payment.create, title: Create Payment}
-  - {id: finance.payment.submit, title: Submit Payment}
-  - {id: finance.payment.approve, title: Approve Payment}
-  - {id: finance.payment.cancel, title: Cancel Payment}
-  - {id: finance.journal-entry.get, title: Get Journal Entry}
-  - {id: finance.journal-entry.create, title: Create Journal Entry}
-  - {id: finance.journal-entry.post, title: Post Journal Entry}
-  - {id: finance.journal-entry.reverse, title: Reverse Journal Entry}
-  - {id: finance.payment-run.create, title: Create Payment Run}
-  - {id: finance.payment-run.schedule, title: Schedule Payment Run}
-  - {id: finance.payment-run.approve, title: Approve Payment Run}
+- {id: finance.invoice.get, title: Get Invoice}
+- {id: finance.invoice.search, title: Search Invoices}
+- {id: finance.invoice.create, title: Create Invoice}
+- {id: finance.invoice.submit, title: Submit Invoice}
+- {id: finance.invoice.approve, title: Approve Invoice}
+- {id: finance.invoice.cancel, title: Cancel Invoice}
+- {id: finance.payment.get, title: Get Payment}
+- {id: finance.payment.create, title: Create Payment}
+- {id: finance.payment.submit, title: Submit Payment}
+- {id: finance.payment.approve, title: Approve Payment}
+- {id: finance.payment.cancel, title: Cancel Payment}
+- {id: finance.journal-entry.get, title: Get Journal Entry}
+- {id: finance.journal-entry.create, title: Create Journal Entry}
+- {id: finance.journal-entry.post, title: Post Journal Entry}
+- {id: finance.journal-entry.reverse, title: Reverse Journal Entry}
+- {id: finance.payment-run.create, title: Create Payment Run}
+- {id: finance.payment-run.schedule, title: Schedule Payment Run}
+- {id: finance.payment-run.approve, title: Approve Payment Run}

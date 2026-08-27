@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: sales.sales-order.cancel
+version: '0.2'
+title: Cancel Sales Order
+domain: sales
+kind: command
+summary: Cancel a sales order when cancellation is permitted by the applicable business rules.
+objects:
+- object: sales.sales-order
+  role: primary
+input: {schema: schemas/common/business-object-reference.schema.json}
+output: {schema: schemas/objects/sales/sales-order.schema.json}
+preconditions: {lifecycle: open}
+effects: {lifecycle: cancelled}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

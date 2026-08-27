@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/sales/quote.schema.json",
+  "title": "ABCS Sales Quote",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "seller", "customer", "quoteDate", "currency", "lines", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "seller": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "customer": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "quoteDate": {"type": "string", "format": "date"},
+    "validUntil": {"type": "string", "format": "date"},
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "lines": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["lineNumber", "description", "quantity", "unitPrice"], "properties": {"lineNumber": {"type": "integer", "minimum": 1}, "item": {"type": "string"}, "description": {"type": "string", "minLength": 1}, "quantity": {"$ref": "https://abcs.sirvisetti.com/schemas/common/quantity.schema.json"}, "unitPrice": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}, "amount": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}}}},
+    "amounts": {"type": "object", "additionalProperties": false, "properties": {"subtotal": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}, "tax": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}, "total": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"}}},
+    "status": {"type": "object", "additionalProperties": false, "required": ["lifecycle"], "properties": {"lifecycle": {"type": "string", "enum": ["draft", "issued", "accepted", "rejected", "expired", "cancelled"]}}}
+  }
+}

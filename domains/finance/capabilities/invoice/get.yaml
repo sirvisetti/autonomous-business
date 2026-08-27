@@ -1,0 +1,17 @@
+abcs: '0.2'
+id: finance.invoice.get
+version: '0.2'
+title: Get Invoice
+domain: finance
+kind: query
+summary: Retrieve one invoice using a supported canonical business key.
+objects:
+- object: finance.invoice
+  role: primary
+input:
+  schema: schemas/common/business-object-reference.schema.json
+output:
+  schema: schemas/objects/finance/invoice.schema.json
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

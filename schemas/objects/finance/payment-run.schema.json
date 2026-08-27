@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/finance/payment-run.schema.json",
+  "title": "ABCS Finance Payment Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "payer", "currency", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "payer": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "selectionDate": {"type": "string", "format": "date"},
+    "scheduledAt": {"type": "string", "format": "date-time"},
+    "payments": {"type": "array", "items": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"}, "uniqueItems": true},
+    "status": {"type": "object", "additionalProperties": false, "required": ["lifecycle", "approval"], "properties": {"lifecycle": {"type": "string", "enum": ["draft", "scheduled", "in-progress", "completed", "cancelled"]}, "approval": {"type": "string", "enum": ["not-submitted", "pending", "approved", "rejected"]}}}
+  }
+}

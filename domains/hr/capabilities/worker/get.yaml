@@ -1,0 +1,13 @@
+abcs: '0.2'
+id: hr.worker.get
+version: '0.2'
+title: Get Worker
+domain: hr
+kind: query
+summary: Retrieve one worker using a supported canonical business key.
+objects:
+- object: hr.worker
+  role: primary
+input: {schema: schemas/common/business-object-reference.schema.json}
+output: {schema: schemas/objects/hr/worker.schema.json}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: hr.payroll-run.approve
+version: '0.2'
+title: Approve Payroll Run
+domain: hr
+kind: command
+summary: Record an authorized approval of a payroll run.
+objects:
+- object: hr.payroll-run
+  role: primary
+input: {schema: schemas/common/approval-input.schema.json}
+output: {schema: schemas/objects/hr/payroll-run.schema.json}
+preconditions: {approval: pending}
+effects: {approval: approved}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

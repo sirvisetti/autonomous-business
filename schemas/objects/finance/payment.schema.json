@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/finance/payment.schema.json",
+  "title": "ABCS Finance Payment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "payer", "payee", "amount", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "payer": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "payee": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "amount": {"$ref": "https://abcs.sirvisetti.com/schemas/common/monetary-amount.schema.json"},
+    "paymentDate": {"type": "string", "format": "date"},
+    "scheduledDate": {"type": "string", "format": "date"},
+    "invoices": {"type": "array", "items": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"}, "uniqueItems": true},
+    "reference": {"type": "string"},
+    "status": {"type": "object", "additionalProperties": false, "required": ["lifecycle"], "properties": {"lifecycle": {"type": "string", "enum": ["draft", "scheduled", "processing", "completed", "cancelled", "failed"]}, "approval": {"type": "string", "enum": ["not-required", "not-submitted", "pending", "approved", "rejected"]}}}
+  }
+}

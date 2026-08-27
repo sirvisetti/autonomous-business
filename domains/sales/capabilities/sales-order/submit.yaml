@@ -1,0 +1,15 @@
+abcs: '0.2'
+id: sales.sales-order.submit
+version: '0.2'
+title: Submit Sales Order
+domain: sales
+kind: command
+summary: Submit a sales order into the seller's applicable business fulfillment flow.
+objects:
+- object: sales.sales-order
+  role: primary
+input: {schema: schemas/objects/sales/sales-order.schema.json}
+output: {schema: schemas/objects/sales/sales-order.schema.json}
+preconditions: {lifecycle: draft}
+effects: {lifecycle: open}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

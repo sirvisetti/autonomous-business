@@ -22,6 +22,14 @@ Draft 0.2 initial domains are: `procurement`, `finance`, `sales`, `hr`, `service
 
 Integration, automation, middleware, transport, scheduling infrastructure, and similar technology disciplines are not ABCS business domains.
 
+### Domain maturity in Draft 0.2
+
+- **Reference** — a deep canonical domain used to prove the specification end to end. Procurement is the first reference domain.
+- **Modeled** — canonical Business Objects, schemas, keys, relationships, state dimensions, and representative detailed capabilities are defined. Finance, Sales, and Human Resources are modeled domains in Draft 0.2.
+- **Initial** — representative capability vocabulary is published while deeper Business Object modeling remains future work. Service, Logistics, Manufacturing, and Projects are initial domains.
+
+Maturity describes the depth of the current ABCS definition, not the importance of the business domain.
+
 ## 3. Canonical identifiers
 
 Capability identifiers use:
@@ -41,7 +49,7 @@ Business Object identifiers use:
 
 `<domain>.<business-object>`
 
-Example: `procurement.purchase-order`.
+Examples: `procurement.purchase-order`, `finance.invoice`, `sales.sales-order`, and `hr.worker`.
 
 Segments use lower-case kebab-case.
 
@@ -62,9 +70,18 @@ A Business Object definition may specify:
 
 Canonical schemas MUST NOT embed application-vendor fields or implementation routing/configuration.
 
+Draft 0.2 deeply models:
+
+- Procurement — Purchase Requisition, Supplier, Purchase Order, Receipt
+- Finance — Invoice, Payment, Journal Entry, Payment Run
+- Sales — Customer, Quote, Sales Order, Return
+- Human Resources — Worker, Position, Leave Request, Payroll Run
+
 ## 5. Parties and roles
 
 A Party represents a business participant such as an organization or person. Supplier, Customer, Buyer, Seller, Payer, Payee, and Carrier are contextual business roles. Domain objects may expose these domain-specific views while preserving a reusable Party identity/reference model.
+
+A Customer and Supplier therefore MUST NOT be assumed to be unrelated identities merely because they occur in different domains. The same Party may play multiple business roles.
 
 ## 6. Capability definition
 

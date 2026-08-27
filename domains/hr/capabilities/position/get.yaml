@@ -1,0 +1,13 @@
+abcs: '0.2'
+id: hr.position.get
+version: '0.2'
+title: Get Position
+domain: hr
+kind: query
+summary: Retrieve one position using a supported canonical business key.
+objects:
+- object: hr.position
+  role: primary
+input: {schema: schemas/common/business-object-reference.schema.json}
+output: {schema: schemas/objects/hr/position.schema.json}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

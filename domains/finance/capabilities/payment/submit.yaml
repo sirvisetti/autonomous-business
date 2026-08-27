@@ -1,0 +1,21 @@
+abcs: '0.2'
+id: finance.payment.submit
+version: '0.2'
+title: Submit Payment
+domain: finance
+kind: command
+summary: Submit a payment for applicable business review, authorization, or execution.
+objects:
+- object: finance.payment
+  role: primary
+input:
+  schema: schemas/objects/finance/payment.schema.json
+output:
+  schema: schemas/objects/finance/payment.schema.json
+preconditions:
+  lifecycle: draft
+effects:
+  approval: pending
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

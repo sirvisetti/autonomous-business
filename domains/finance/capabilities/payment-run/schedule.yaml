@@ -1,0 +1,21 @@
+abcs: '0.2'
+id: finance.payment-run.schedule
+version: '0.2'
+title: Schedule Payment Run
+domain: finance
+kind: command
+summary: Schedule a defined business payment run for an intended business execution time.
+objects:
+- object: finance.payment-run
+  role: primary
+input:
+  schema: schemas/objects/finance/payment-run.schema.json
+output:
+  schema: schemas/objects/finance/payment-run.schema.json
+preconditions:
+  lifecycle: draft
+effects:
+  lifecycle: scheduled
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,13 @@
+abcs: '0.2'
+id: sales.customer.get
+version: '0.2'
+title: Get Customer
+domain: sales
+kind: query
+summary: Retrieve one customer using a supported canonical business key.
+objects:
+- object: sales.customer
+  role: primary
+input: {schema: schemas/common/business-object-reference.schema.json}
+output: {schema: schemas/objects/sales/customer.schema.json}
+provenance: {policy: GREEN, sources: [Sirvisetti original canonical model]}

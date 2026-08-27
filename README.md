@@ -25,9 +25,18 @@ Draft 0.2 establishes:
 - Canonical Business Objects, keys, fields, relationships, and multidimensional state.
 - Initial business domains: Procurement, Finance, Sales, HR, Service, Logistics, Manufacturing, and Projects.
 - Procurement as the first deep reference domain.
+- Finance, Sales, and Human Resources as modeled domains with canonical Business Objects and representative detailed capability definitions.
+- A reusable Party model so Customer, Supplier, Buyer, Seller, Payer, Payee and similar concepts can preserve contextual business roles without duplicating identity.
+- Business scheduling semantics for meaningful subjects such as Payment Runs and Payroll Runs while excluding generic scheduler/job concepts.
 - A small transport-neutral Capability Invocation Envelope and response envelope.
 - Discovery, description, and invocation semantics, with HTTP shown only as an optional binding convention.
 - Compatibility/versioning and GREEN-source provenance rules.
+
+## Domain maturity
+
+- **Reference** — deep canonical model used to prove the specification end to end. Procurement is the first reference domain.
+- **Modeled** — canonical Business Objects, schemas, relationships, state, and representative detailed capabilities are defined. Finance, Sales, and Human Resources are modeled in Draft 0.2.
+- **Initial** — representative capability vocabulary is published but deeper object modeling remains future work.
 
 ## Repository layout
 

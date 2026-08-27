@@ -1,0 +1,21 @@
+abcs: '0.2'
+id: finance.invoice.approve
+version: '0.2'
+title: Approve Invoice
+domain: finance
+kind: command
+summary: Record an authorized business approval of an invoice.
+objects:
+- object: finance.invoice
+  role: primary
+input:
+  schema: schemas/common/approval-input.schema.json
+output:
+  schema: schemas/objects/finance/invoice.schema.json
+preconditions:
+  approval: pending
+effects:
+  approval: approved
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/common/approval-input.schema.json",
+  "title": "ABCS Approval Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["target"],
+  "properties": {
+    "target": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "comment": {"type": "string"}
+  }
+}
