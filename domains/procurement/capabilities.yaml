@@ -1,0 +1,27 @@
+abcs: "0.1"
+domain: procurement
+capabilities:
+  - id: procurement.purchase-order.get
+    title: Get Purchase Order
+  - id: procurement.purchase-order.search
+    title: Search Purchase Orders
+  - id: procurement.purchase-order.create
+    title: Create Purchase Order
+  - id: procurement.purchase-order.update
+    title: Update Purchase Order
+  - id: procurement.purchase-order.submit
+    title: Submit Purchase Order
+  - id: procurement.purchase-order.approve
+    title: Approve Purchase Order
+  - id: procurement.purchase-order.reject
+    title: Reject Purchase Order
+  - id: procurement.purchase-order.cancel
+    title: Cancel Purchase Order
+  - id: procurement.supplier.get
+    title: Get Supplier
+  - id: procurement.supplier.search
+    title: Search Suppliers
+  - id: procurement.receipt.get
+    title: Get Receipt
+  - id: procurement.receipt.create
+    title: Create Receipt
