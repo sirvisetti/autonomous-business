@@ -14,9 +14,21 @@ Middleware, integration infrastructure, generic automation, transports, schedule
 
 Capability is the universal executable primitive. Business Domains classify capability meaning and provide namespaces; they do not create different capability types.
 
+## Domain maturity
+
+- **Reference** — modeled in depth and used to demonstrate the full ABCS pattern.
+- **Modeled** — has canonical Business Objects, schemas, business keys/state/relationships, and representative Capability definitions.
+- **Initial** — vocabulary/catalog only; not yet modeled in depth.
+
+Maturity labels describe specification completeness, not market adoption.
+
 ## Provenance
 
-ABCS follows a GREEN-only provenance policy. Canonical content must be original work or based on clearly permissive/open source material whose terms allow reuse. Proprietary or licensing-ambiguous frameworks must not be used as source material.
+ABCS follows a GREEN-only provenance policy. Canonical content must be original work or based on clearly permissive/open material whose terms allow the intended use. Proprietary or licensing-ambiguous frameworks must not be used as canonical source material. See `PROVENANCE.md`.
+
+## Representations
+
+ABCS maintains one logical model. YAML is the maintained human-authoring representation for modular definitions, JSON is the preferred machine publication/interchange representation, and JSON Schema 2020-12 is the normative validation language. See `FORMATS.md`.
 
 ## Compatibility
 

@@ -1,0 +1,17 @@
+abcs: "0.2"
+id: manufacturing.production-order.complete
+version: "0.2"
+title: Complete Production Order
+domain: manufacturing
+kind: command
+summary: Record that the authorized production represented by a production order has been completed.
+objects:
+  - object: manufacturing.production-order
+    role: primary
+preconditions:
+  lifecycle: in-progress
+effects:
+  lifecycle: completed
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model, Eclipse Tractus-X semantic models (CC-BY-4.0; semantic reference only)]

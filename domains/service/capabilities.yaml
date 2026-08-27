@@ -1,6 +1,6 @@
 abcs: "0.2"
 domain: service
-maturity: initial
+maturity: modeled
 capabilities:
   - {id: service.customer-case.get, title: Get Customer Case}
   - {id: service.customer-case.search, title: Search Customer Cases}

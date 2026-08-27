@@ -1,6 +1,6 @@
 abcs: "0.2"
 domain: logistics
-maturity: initial
+maturity: modeled
 capabilities:
   - {id: logistics.shipment.get, title: Get Shipment}
   - {id: logistics.shipment.search, title: Search Shipments}

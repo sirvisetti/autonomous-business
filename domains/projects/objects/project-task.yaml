@@ -1,0 +1,26 @@
+abcs: "0.2"
+id: projects.project-task
+version: "0.2"
+title: Project Task
+domain: projects
+summary: A defined unit of project work assigned, scheduled, tracked, and completed within a project.
+schema: schemas/objects/projects/project-task.schema.json
+keys:
+  - name: project-task-number
+    primary: true
+    fields: [number]
+    scope: [project]
+relationships:
+  project:
+    target: projects.project
+    cardinality: one
+    required: true
+stateDimensions:
+  lifecycle: [planned, ready, in-progress, completed, cancelled]
+capabilities:
+  - projects.project-task.create
+  - projects.project-task.assign
+  - projects.project-task.complete
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

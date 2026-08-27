@@ -1,0 +1,15 @@
+abcs: "0.2"
+id: logistics.delivery.confirm
+version: "0.2"
+title: Confirm Delivery
+domain: logistics
+kind: command
+summary: Record that a delivery has been received or otherwise confirmed at its destination.
+objects:
+  - object: logistics.delivery
+    role: primary
+effects:
+  lifecycle: delivered
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model, OASIS UBL 2.4 (semantic reference only)]

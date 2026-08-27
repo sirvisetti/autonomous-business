@@ -10,39 +10,32 @@ Public site: https://abcs.sirvisetti.com
 
 **Capability is the universal executable primitive.** ABCS domains classify enduring areas of business meaning; they are not technology categories or capability types.
 
-ABCS standardizes business meaning: canonical capability identities, business objects, business relationships, business state, contracts, and the minimum semantics needed to discover and invoke capabilities consistently.
+ABCS standardizes business meaning: canonical capability identities, Business Objects, relationships, business state, contracts, and the minimum semantics needed to discover and invoke capabilities consistently.
 
 ABCS does **not** standardize middleware, integration technology, automation engines, schedulers, workflow engines, agents, databases, message brokers, authentication products, EDI transports, or application-vendor APIs.
 
-A useful scope test is: **Would this capability still make business sense if humans performed the work manually and all implementation technology disappeared?** If not, it does not belong in ABCS.
+Scope test: **Would this capability still make business sense if humans performed the work manually and all implementation technology disappeared?** If not, it does not belong in ABCS.
 
 ## Draft 0.2 scope
 
-Draft 0.2 establishes:
+Draft 0.2 establishes eight initial business domains: Procurement, Finance, Sales, Human Resources, Service, Logistics, Manufacturing, and Projects. Procurement is the reference domain; the other seven are modeled domains with canonical Business Objects, schemas, state, relationships, and representative capabilities.
 
-- Capability as the universal executable primitive.
-- Business Domain as classification and namespace.
-- Canonical Business Objects, keys, fields, relationships, and multidimensional state.
-- Initial business domains: Procurement, Finance, Sales, HR, Service, Logistics, Manufacturing, and Projects.
-- Procurement as the first deep reference domain.
-- Finance, Sales, and Human Resources as modeled domains with canonical Business Objects and representative detailed capability definitions.
-- A reusable Party model so Customer, Supplier, Buyer, Seller, Payer, Payee and similar concepts can preserve contextual business roles without duplicating identity.
-- Business scheduling semantics for meaningful subjects such as Payment Runs and Payroll Runs while excluding generic scheduler/job concepts.
-- A small transport-neutral Capability Invocation Envelope and response envelope.
-- Discovery, description, and invocation semantics, with HTTP shown only as an optional binding convention.
-- Compatibility/versioning and GREEN-source provenance rules.
+## Machine-readable representations
 
-## Domain maturity
+ABCS maintains modular YAML 1.2 source definitions restricted to the JSON-compatible data model, publishes machine-facing JSON artifacts where useful, and uses JSON Schema 2020-12 as the normative validation language. See `FORMATS.md`.
 
-- **Reference** — deep canonical model used to prove the specification end to end. Procurement is the first reference domain.
-- **Modeled** — canonical Business Objects, schemas, relationships, state, and representative detailed capabilities are defined. Finance, Sales, and Human Resources are modeled in Draft 0.2.
-- **Initial** — representative capability vocabulary is published but deeper object modeling remains future work.
+The aggregate Draft 0.2 catalog is published in both `catalog/abcs-0.2.yaml` and `catalog/abcs-0.2.json` from the same logical model.
+
+## Provenance
+
+ABCS follows a GREEN-only provenance policy. See `PROVENANCE.md` for the reviewed open semantic references and their disposition.
 
 ## Repository layout
 
 - `specification/` — versioned specification text
 - `schemas/` — machine-readable JSON Schema 2020-12 definitions
 - `domains/` — canonical business-domain catalogs and definitions
+- `catalog/` — generated aggregate publication representations
 - `examples/` — example capability and envelope documents
 - root HTML/CSS — static public site deployed by Netlify
 

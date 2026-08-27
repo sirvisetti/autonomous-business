@@ -1,0 +1,17 @@
+abcs: "0.2"
+id: logistics.shipment.dispatch
+version: "0.2"
+title: Dispatch Shipment
+domain: logistics
+kind: command
+summary: Record that a planned shipment has departed under the responsibility of the applicable carrier or shipper.
+objects:
+  - object: logistics.shipment
+    role: primary
+preconditions:
+  lifecycle: ready
+effects:
+  lifecycle: dispatched
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model, OASIS UBL 2.4 (semantic reference only)]

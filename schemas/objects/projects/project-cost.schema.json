@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/projects/project-cost.schema.json",
+  "title": "ABCS Project Cost",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "project", "costDate", "amount", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "project": {"$ref": "../../common/business-object-reference.schema.json"},
+    "task": {"$ref": "../../common/business-object-reference.schema.json"},
+    "costDate": {"type": "string", "format": "date"},
+    "costType": {"type": "string"},
+    "description": {"type": "string"},
+    "amount": {"$ref": "../../common/monetary-amount.schema.json"},
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lifecycle"],
+      "properties": {"lifecycle": {"type": "string", "enum": ["recorded", "reversed"]}}
+    }
+  }
+}

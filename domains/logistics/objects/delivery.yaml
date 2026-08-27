@@ -1,0 +1,27 @@
+abcs: "0.2"
+id: logistics.delivery
+version: "0.2"
+title: Delivery
+domain: logistics
+summary: A business record of goods presented or transferred to an intended recipient at a destination.
+schema: schemas/objects/logistics/delivery.schema.json
+keys:
+  - name: delivery-number
+    primary: true
+    fields: [number]
+    scope: [deliveringParty]
+relationships:
+  shipment:
+    target: logistics.shipment
+    cardinality: one
+    required: false
+stateDimensions:
+  lifecycle: [planned, out-for-delivery, delivered, failed, cancelled]
+capabilities:
+  - logistics.delivery.get
+  - logistics.delivery.confirm
+provenance:
+  policy: GREEN
+  sources:
+    - Sirvisetti original canonical model
+    - OASIS UBL 2.4 (semantic reference only)

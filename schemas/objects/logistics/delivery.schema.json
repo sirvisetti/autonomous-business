@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/logistics/delivery.schema.json",
+  "title": "ABCS Delivery",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "deliveringParty", "recipient", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "deliveringParty": {"$ref": "../../common/party-reference.schema.json"},
+    "recipient": {"$ref": "../../common/party-reference.schema.json"},
+    "shipment": {"$ref": "../../common/business-object-reference.schema.json"},
+    "destination": {"$ref": "../../common/address.schema.json"},
+    "deliveredAt": {"type": "string", "format": "date-time"},
+    "receivedBy": {"type": "string"},
+    "proofReference": {"type": "string"},
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lifecycle"],
+      "properties": {
+        "lifecycle": {"type": "string", "enum": ["planned", "out-for-delivery", "delivered", "failed", "cancelled"]}
+      }
+    }
+  }
+}

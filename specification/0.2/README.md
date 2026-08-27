@@ -6,7 +6,7 @@ Status: **Draft / pre-1.0**.
 
 ## 1. Scope
 
-ABCS standardizes business meaning. It defines canonical capability identities, canonical Business Objects, business keys and state, relationships, machine-readable contracts, and the minimum invocation/discovery semantics needed to exchange those business meanings consistently.
+ABCS standardizes business meaning. It defines canonical Capability identities, canonical Business Objects, business keys and state, relationships, machine-readable contracts, and the minimum invocation/discovery semantics needed to exchange those business meanings consistently.
 
 ABCS does not standardize middleware, integration technology, automation technology, schedulers, workflow engines, agent frameworks, databases, message brokers, authentication products, EDI transports, or vendor-specific APIs.
 
@@ -22,118 +22,76 @@ Draft 0.2 initial domains are: `procurement`, `finance`, `sales`, `hr`, `service
 
 Integration, automation, middleware, transport, scheduling infrastructure, and similar technology disciplines are not ABCS business domains.
 
-### Domain maturity in Draft 0.2
+## 3. Domain maturity
 
-- **Reference** — a deep canonical domain used to prove the specification end to end. Procurement is the first reference domain.
-- **Modeled** — canonical Business Objects, schemas, keys, relationships, state dimensions, and representative detailed capabilities are defined. Finance, Sales, and Human Resources are modeled domains in Draft 0.2.
-- **Initial** — representative capability vocabulary is published while deeper Business Object modeling remains future work. Service, Logistics, Manufacturing, and Projects are initial domains.
+Draft 0.2 uses three specification-completeness labels:
 
-Maturity describes the depth of the current ABCS definition, not the importance of the business domain.
+- **Reference** — modeled in depth and used to demonstrate the full ABCS pattern.
+- **Modeled** — canonical Business Objects, schemas, business keys/state/relationships, and representative Capability definitions are present.
+- **Initial** — vocabulary/catalog only.
 
-## 3. Canonical identifiers
+Procurement is the Draft 0.2 reference domain. Finance, Sales, HR, Service, Logistics, Manufacturing, and Projects are modeled domains. Maturity is not a statement of market adoption.
 
-Capability identifiers use:
+## 4. Canonical identifiers
 
-`<domain>.<business-subject>.<operation>`
+Capability identifiers use `<domain>.<business-subject>.<operation>`. Business Object identifiers use `<domain>.<business-object>`. Segments use lower-case kebab-case.
 
-Examples:
+Examples include `procurement.purchase-order.submit`, `finance.payment.approve`, `hr.payroll-run.schedule`, `service.customer-case.resolve`, `logistics.shipment.dispatch`, `manufacturing.work-order.release`, and `projects.project-time.approve`.
 
-- `procurement.purchase-order.submit`
-- `finance.payment.approve`
-- `sales.sales-order.create`
-- `hr.leave-request.approve`
-- `logistics.shipment.notify`
-- `manufacturing.work-order.release`
+## 5. Business Objects
 
-Business Object identifiers use:
-
-`<domain>.<business-object>`
-
-Examples: `procurement.purchase-order`, `finance.invoice`, `sales.sales-order`, and `hr.worker`.
-
-Segments use lower-case kebab-case.
-
-## 4. Business Objects
-
-A Business Object defines canonical business information used by capabilities. It is not an execution primitive.
-
-A Business Object definition may specify:
-
-- canonical identifier and business definition
-- JSON Schema 2020-12 instance schema
-- business keys and key scope
-- canonical fields
-- typed relationships
-- lifecycle/state dimensions
-- related capabilities
-- version and provenance
+A Business Object defines canonical business information used by capabilities. It is not an execution primitive. A Business Object definition may specify canonical identity, JSON Schema 2020-12 instance schema, business keys and key scope, canonical fields, typed relationships, lifecycle/state dimensions, related capabilities, version, and provenance.
 
 Canonical schemas MUST NOT embed application-vendor fields or implementation routing/configuration.
 
-Draft 0.2 deeply models:
+## 6. Parties and roles
 
-- Procurement — Purchase Requisition, Supplier, Purchase Order, Receipt
-- Finance — Invoice, Payment, Journal Entry, Payment Run
-- Sales — Customer, Quote, Sales Order, Return
-- Human Resources — Worker, Position, Leave Request, Payroll Run
+A Party represents a business participant such as an organization or person. Supplier, Customer, Buyer, Seller, Payer, Payee, Carrier, Worker, Sponsor, and similar terms may represent contextual business roles or domain-specific relationships.
 
-## 5. Parties and roles
+## 7. Capability definition
 
-A Party represents a business participant such as an organization or person. Supplier, Customer, Buyer, Seller, Payer, Payee, and Carrier are contextual business roles. Domain objects may expose these domain-specific views while preserving a reusable Party identity/reference model.
+A Capability definition identifies the business operation, its domain, optional associated Business Objects, input/output contracts, and optional business preconditions/effects. Implementation details are excluded.
 
-A Customer and Supplier therefore MUST NOT be assumed to be unrelated identities merely because they occur in different domains. The same Party may play multiple business roles.
+## 8. Scheduling distinction
 
-## 6. Capability definition
+Scheduling may be a valid business operation when the scheduled subject itself has business meaning, for example `hr.payroll-run.schedule` or `finance.payment-run.schedule`. Generic technical scheduling remains outside ABCS.
 
-A capability definition identifies the business operation, its domain, optional associated Business Objects, input/output contracts, and optional business preconditions/effects.
+## 9. Processes, Policies, and Events
 
-Implementation details are excluded. A capability may be fulfilled by humans, APIs, workflows, autonomous agents, ERP transactions, custom software, or combinations of these without changing its canonical ABCS meaning.
+Processes, Policies, Events, Roles, and Relationships are supporting business semantics rather than peer execution primitives. If a process or decision must be externally executable, it is exposed through a Capability whose identifier describes the business action, not the implementation mechanism.
 
-## 7. Scheduling distinction
+## 10. Capability invocation envelope
 
-Scheduling may be a valid business operation when the scheduled subject itself has business meaning, for example `hr.payroll-run.schedule` or `finance.payment-run.schedule`.
+Draft 0.2 defines a small transport-neutral Capability Invocation Envelope containing the ABCS version, canonical capability identifier, request identity, optional business participants, and canonical payload. HTTP, messaging, EDI transport, authentication, certificates, routing, retries, and middleware are implementation concerns.
 
-Generic technical scheduling such as scheduling a cron job, container job, batch executable, or middleware task is outside ABCS.
+## 11. Discovery model
 
-Delayed execution of an arbitrary capability is an implementation/runtime concern unless the scheduling action itself has independent business meaning.
+ABCS defines three logical interactions: **Discover**, **Describe**, and **Invoke**. An optional HTTP binding may map these to `GET /capabilities`, `GET /capabilities/{id}`, and `POST /capabilities`.
 
-## 8. Processes, Policies, and Events
+## 12. Representation and validation
 
-Processes, Policies, Events, Roles, and Relationships are supporting business semantics rather than peer execution primitives.
+ABCS defines one logical machine-readable model rather than separate YAML and JSON semantics.
 
-If a process or decision must be externally executable, it is exposed through a Capability whose identifier describes the business action, not the implementation mechanism.
+- Modular definition source is maintained in YAML 1.2 restricted to the JSON-compatible data model.
+- JSON is the preferred machine publication/interchange representation.
+- JSON Schema 2020-12 is the normative validation language for canonical payloads and definition structures.
+- Generated JSON MUST be semantically equivalent to the maintained YAML source; a mismatch is a publication defect.
 
-## 9. Capability invocation envelope
+The aggregate Draft 0.2 business catalog is published in both YAML and JSON.
 
-Draft 0.2 defines a small transport-neutral Capability Invocation Envelope containing the ABCS version, canonical capability identifier, request identity, optional business participants, and canonical payload.
+## 13. Compatibility and versioning
 
-The envelope is transport-neutral. HTTP, messaging, EDI transport, authentication, certificates, routing, retries, and middleware are implementation concerns.
+Canonical identifiers MUST preserve their established business meaning. Compatible changes may add optional fields or additional non-breaking metadata. Breaking changes include removing required fields, changing field meaning, changing business effects, or redefining an established canonical identifier.
 
-## 10. Discovery model
+Specification version, Capability-definition version, and Business Object schema version are separate concerns.
 
-ABCS defines three logical interactions:
+## 14. Provenance
 
-- **Discover** — determine which canonical business capabilities are supported.
-- **Describe** — obtain the definition and contracts for a capability.
-- **Invoke** — request performance of a capability using the canonical envelope.
+ABCS follows a GREEN-only source/provenance policy. Canonical semantics are based on original work and clearly open sources whose terms allow the intended use. Proprietary or licensing-ambiguous frameworks MUST NOT be used as source material.
 
-An optional HTTP binding may map these to `GET /capabilities`, `GET /capabilities/{id}`, and `POST /capabilities`. These paths are conventions, not requirements of the core business semantics.
+Open references are used selectively for semantic cross-checking rather than copied wholesale. The repository `PROVENANCE.md` records reviewed sources and their disposition.
 
-## 11. Compatibility and versioning
-
-Canonical identifiers MUST preserve their established business meaning.
-
-Compatible changes may add optional fields or additional non-breaking metadata. Breaking changes include removing required fields, changing field meaning, changing business effects, or redefining an established canonical identifier.
-
-Specification version, capability-definition version, and Business Object schema version are separate concerns and MUST NOT be treated as interchangeable.
-
-## 12. Provenance
-
-ABCS follows a GREEN-only source/provenance policy: canonical semantics are based on original work and clearly permissive/open sources whose terms permit reuse. Proprietary or licensing-ambiguous frameworks MUST NOT be used as source material for canonical definitions.
-
-Open standards such as OASIS UBL may be used selectively as semantic references when useful, but ABCS intentionally defines concise business models rather than reproducing external document formats wholesale.
-
-## 13. Conformance
+## 15. Conformance
 
 An implementation conforms to an ABCS capability when it declares the canonical capability identifier, preserves the defined business semantics, satisfies the applicable canonical contracts, and clearly exposes any limitations that affect those semantics.
 

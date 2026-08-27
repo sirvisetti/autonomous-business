@@ -1,0 +1,17 @@
+abcs: "0.2"
+id: projects.project-time.approve
+version: "0.2"
+title: Approve Project Time
+domain: projects
+kind: command
+summary: Record business approval of submitted time charged to a project or project task.
+objects:
+  - object: projects.project-time
+    role: primary
+preconditions:
+  lifecycle: submitted
+effects:
+  lifecycle: approved
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

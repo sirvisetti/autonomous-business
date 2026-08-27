@@ -1,0 +1,31 @@
+abcs: "0.2"
+id: service.customer-case
+version: "0.2"
+title: Customer Case
+domain: service
+summary: A tracked business matter raised by or on behalf of a customer that requires investigation, response, or resolution.
+schema: schemas/objects/service/customer-case.schema.json
+keys:
+  - name: case-number
+    primary: true
+    fields: [number]
+    scope: [provider]
+relationships:
+  customer:
+    target: sales.customer
+    cardinality: one
+    required: false
+stateDimensions:
+  lifecycle: [open, in-progress, resolved, closed, cancelled]
+  assignment: [unassigned, assigned]
+capabilities:
+  - service.customer-case.get
+  - service.customer-case.search
+  - service.customer-case.create
+  - service.customer-case.assign
+  - service.customer-case.escalate
+  - service.customer-case.resolve
+  - service.customer-case.close
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

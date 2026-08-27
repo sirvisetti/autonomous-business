@@ -1,0 +1,13 @@
+abcs: "0.2"
+id: projects.project-task.assign
+version: "0.2"
+title: Assign Project Task
+domain: projects
+kind: command
+summary: Assign responsibility for a project task to an applicable worker or business participant.
+objects:
+  - object: projects.project-task
+    role: primary
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

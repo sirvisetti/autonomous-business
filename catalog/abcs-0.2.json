@@ -1,0 +1,14 @@
+{
+  "abcs": "0.2",
+  "kind": "business-catalog",
+  "domains": {
+    "procurement": {"maturity": "reference", "objects": ["purchase-requisition", "supplier", "purchase-order", "receipt"]},
+    "finance": {"maturity": "modeled", "objects": ["invoice", "payment", "journal-entry", "payment-run"]},
+    "sales": {"maturity": "modeled", "objects": ["customer", "quote", "sales-order", "return"]},
+    "hr": {"maturity": "modeled", "objects": ["worker", "position", "leave-request", "payroll-run"]},
+    "service": {"maturity": "modeled", "objects": ["customer-case", "service-request"]},
+    "logistics": {"maturity": "modeled", "objects": ["shipment", "delivery", "inventory-transfer"]},
+    "manufacturing": {"maturity": "modeled", "objects": ["work-order", "production-order", "material-issue"]},
+    "projects": {"maturity": "modeled", "objects": ["project", "project-task", "project-time", "project-cost"]}
+  }
+}

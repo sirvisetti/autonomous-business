@@ -1,0 +1,15 @@
+abcs: "0.2"
+id: projects.project-cost.record
+version: "0.2"
+title: Record Project Cost
+domain: projects
+kind: command
+summary: Record a business cost against a project or project task.
+objects:
+  - object: projects.project-cost
+    role: primary
+effects:
+  lifecycle: recorded
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

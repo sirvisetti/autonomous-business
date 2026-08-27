@@ -1,0 +1,17 @@
+abcs: "0.2"
+id: service.customer-case.resolve
+version: "0.2"
+title: Resolve Customer Case
+domain: service
+kind: command
+summary: Record the business resolution of a customer case.
+objects:
+  - object: service.customer-case
+    role: primary
+preconditions:
+  lifecycle: in-progress
+effects:
+  lifecycle: resolved
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

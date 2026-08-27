@@ -1,0 +1,17 @@
+abcs: "0.2"
+id: logistics.inventory-transfer.receive
+version: "0.2"
+title: Receive Inventory Transfer
+domain: logistics
+kind: command
+summary: Record receipt of inventory moved between business locations.
+objects:
+  - object: logistics.inventory-transfer
+    role: primary
+preconditions:
+  lifecycle: in-transit
+effects:
+  lifecycle: received
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model, OASIS UBL 2.4 (semantic reference only)]

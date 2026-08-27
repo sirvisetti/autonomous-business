@@ -1,0 +1,17 @@
+abcs: "0.2"
+id: manufacturing.work-order.release
+version: "0.2"
+title: Release Work Order
+domain: manufacturing
+kind: command
+summary: Authorize a manufacturing work order to proceed from draft planning into executable work.
+objects:
+  - object: manufacturing.work-order
+    role: primary
+preconditions:
+  lifecycle: draft
+effects:
+  lifecycle: released
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model, Eclipse Tractus-X semantic models (CC-BY-4.0; semantic reference only)]

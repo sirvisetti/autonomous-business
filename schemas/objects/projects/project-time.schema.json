@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/projects/project-time.schema.json",
+  "title": "ABCS Project Time",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["number", "project", "worker", "workDate", "hours", "status"],
+  "properties": {
+    "number": {"type": "string", "minLength": 1},
+    "project": {"$ref": "../../common/business-object-reference.schema.json"},
+    "task": {"$ref": "../../common/business-object-reference.schema.json"},
+    "worker": {"$ref": "../../common/business-object-reference.schema.json"},
+    "workDate": {"type": "string", "format": "date"},
+    "hours": {"type": "number", "exclusiveMinimum": 0},
+    "description": {"type": "string"},
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lifecycle"],
+      "properties": {"lifecycle": {"type": "string", "enum": ["draft", "submitted", "approved", "rejected", "cancelled"]}}
+    }
+  }
+}

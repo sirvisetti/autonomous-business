@@ -1,0 +1,28 @@
+abcs: "0.2"
+id: projects.project-cost
+version: "0.2"
+title: Project Cost
+domain: projects
+summary: A business record of cost incurred, allocated, or recognized against a project or project task.
+schema: schemas/objects/projects/project-cost.schema.json
+keys:
+  - name: project-cost-number
+    primary: true
+    fields: [number]
+    scope: [project]
+relationships:
+  project:
+    target: projects.project
+    cardinality: one
+    required: true
+  task:
+    target: projects.project-task
+    cardinality: one
+    required: false
+stateDimensions:
+  lifecycle: [recorded, reversed]
+capabilities:
+  - projects.project-cost.record
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

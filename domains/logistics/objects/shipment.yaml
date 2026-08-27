@@ -1,0 +1,26 @@
+abcs: "0.2"
+id: logistics.shipment
+version: "0.2"
+title: Shipment
+domain: logistics
+summary: A business movement of goods from a shipper or origin to a consignee or destination.
+schema: schemas/objects/logistics/shipment.schema.json
+keys:
+  - name: shipment-number
+    primary: true
+    fields: [number]
+    scope: [shipper]
+stateDimensions:
+  lifecycle: [planned, ready, dispatched, in-transit, delivered, cancelled]
+capabilities:
+  - logistics.shipment.get
+  - logistics.shipment.search
+  - logistics.shipment.create
+  - logistics.shipment.dispatch
+  - logistics.shipment.notify
+  - logistics.shipment.deliver
+provenance:
+  policy: GREEN
+  sources:
+    - Sirvisetti original canonical model
+    - OASIS UBL 2.4 (semantic reference only)

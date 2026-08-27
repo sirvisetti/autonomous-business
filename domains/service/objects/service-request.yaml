@@ -1,0 +1,23 @@
+abcs: "0.2"
+id: service.service-request
+version: "0.2"
+title: Service Request
+domain: service
+summary: A request by a party for a defined business service to be provided, fulfilled, or completed.
+schema: schemas/objects/service/service-request.schema.json
+keys:
+  - name: service-request-number
+    primary: true
+    fields: [number]
+    scope: [provider]
+stateDimensions:
+  lifecycle: [draft, submitted, accepted, in-progress, completed, rejected, cancelled]
+  assignment: [unassigned, assigned]
+capabilities:
+  - service.service-request.get
+  - service.service-request.create
+  - service.service-request.assign
+  - service.service-request.complete
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,33 @@
+abcs: "0.2"
+id: projects.project-time
+version: "0.2"
+title: Project Time
+domain: projects
+summary: A business record of time worked or charged by a worker against a project or project task.
+schema: schemas/objects/projects/project-time.schema.json
+keys:
+  - name: project-time-number
+    primary: true
+    fields: [number]
+    scope: [project]
+relationships:
+  project:
+    target: projects.project
+    cardinality: one
+    required: true
+  task:
+    target: projects.project-task
+    cardinality: one
+    required: false
+  worker:
+    target: hr.worker
+    cardinality: one
+    required: true
+stateDimensions:
+  lifecycle: [draft, submitted, approved, rejected, cancelled]
+capabilities:
+  - projects.project-time.submit
+  - projects.project-time.approve
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

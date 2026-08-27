@@ -1,0 +1,28 @@
+abcs: "0.2"
+id: manufacturing.production-order
+version: "0.2"
+title: Production Order
+domain: manufacturing
+summary: A business authorization to produce a specified item or product quantity within defined planning and production conditions.
+schema: schemas/objects/manufacturing/production-order.schema.json
+keys:
+  - name: production-order-number
+    primary: true
+    fields: [number]
+    scope: [manufacturer]
+relationships:
+  workOrders:
+    target: manufacturing.work-order
+    cardinality: many
+    required: false
+stateDimensions:
+  lifecycle: [planned, released, in-progress, completed, cancelled, closed]
+capabilities:
+  - manufacturing.production-order.get
+  - manufacturing.production-order.release
+  - manufacturing.production-order.complete
+provenance:
+  policy: GREEN
+  sources:
+    - Sirvisetti original canonical model
+    - Eclipse Tractus-X semantic models (CC-BY-4.0; semantic reference only)

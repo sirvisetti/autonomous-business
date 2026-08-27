@@ -1,0 +1,30 @@
+abcs: "0.2"
+id: manufacturing.material-issue
+version: "0.2"
+title: Material Issue
+domain: manufacturing
+summary: A business record that material was issued or consumed for a manufacturing order or production activity.
+schema: schemas/objects/manufacturing/material-issue.schema.json
+keys:
+  - name: material-issue-number
+    primary: true
+    fields: [number]
+    scope: [manufacturer]
+relationships:
+  workOrder:
+    target: manufacturing.work-order
+    cardinality: one
+    required: false
+  productionOrder:
+    target: manufacturing.production-order
+    cardinality: one
+    required: false
+stateDimensions:
+  lifecycle: [recorded, reversed]
+capabilities:
+  - manufacturing.material-issue.create
+provenance:
+  policy: GREEN
+  sources:
+    - Sirvisetti original canonical model
+    - Eclipse Tractus-X semantic models (CC-BY-4.0; semantic reference only)

@@ -1,0 +1,31 @@
+abcs: "0.2"
+id: manufacturing.work-order
+version: "0.2"
+title: Work Order
+domain: manufacturing
+summary: An executable unit of manufacturing work authorized for a defined product, quantity, operation, or production requirement.
+schema: schemas/objects/manufacturing/work-order.schema.json
+keys:
+  - name: work-order-number
+    primary: true
+    fields: [number]
+    scope: [manufacturer]
+relationships:
+  productionOrder:
+    target: manufacturing.production-order
+    cardinality: one
+    required: false
+stateDimensions:
+  lifecycle: [draft, released, in-progress, completed, cancelled, closed]
+capabilities:
+  - manufacturing.work-order.get
+  - manufacturing.work-order.search
+  - manufacturing.work-order.create
+  - manufacturing.work-order.release
+  - manufacturing.work-order.complete
+  - manufacturing.work-order.cancel
+provenance:
+  policy: GREEN
+  sources:
+    - Sirvisetti original canonical model
+    - Eclipse Tractus-X semantic models (CC-BY-4.0; semantic reference only)

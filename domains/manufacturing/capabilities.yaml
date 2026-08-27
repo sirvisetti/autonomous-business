@@ -1,6 +1,6 @@
 abcs: "0.2"
 domain: manufacturing
-maturity: initial
+maturity: modeled
 capabilities:
   - {id: manufacturing.work-order.get, title: Get Work Order}
   - {id: manufacturing.work-order.search, title: Search Work Orders}

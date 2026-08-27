@@ -1,0 +1,17 @@
+abcs: "0.2"
+id: projects.project.close
+version: "0.2"
+title: Close Project
+domain: projects
+kind: command
+summary: Record formal business closure of a project after its work and closeout conditions are complete.
+objects:
+  - object: projects.project
+    role: primary
+preconditions:
+  lifecycle: completed
+effects:
+  lifecycle: closed
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

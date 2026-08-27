@@ -7,18 +7,16 @@ Draft 0.2 expands ABCS from the initial Procurement proof set into a business-se
 - Establishes Capability as the universal executable primitive.
 - Replaces Resource terminology with Business Object.
 - Defines Business Domain as classification/namespace, not a capability type.
-- Adds initial business-domain catalogs for Procurement, Finance, Sales, HR, Service, Logistics, Manufacturing, and Projects.
-- Deepens Procurement with canonical Purchase Requisition, Purchase Order, Supplier, and Receipt definitions.
-- Deepens Finance with canonical Invoice, Payment, Journal Entry, and Payment Run definitions and representative detailed capabilities.
-- Deepens Sales with canonical Customer, Quote, Sales Order, and Return definitions and representative detailed capabilities.
-- Deepens Human Resources with canonical Worker, Position, Leave Request, and Payroll Run definitions and representative detailed capabilities.
-- Clarifies Customer and Supplier as contextual Party roles rather than unrelated universal identities.
-- Demonstrates business scheduling through Payment Run and Payroll Run while keeping generic scheduler/job semantics outside ABCS.
-- Adds reusable Party, Identifier, Address, Monetary Amount, Quantity, Business Object Reference, and Approval Input schemas.
+- Establishes eight initial business domains: Procurement, Finance, Sales, HR, Service, Logistics, Manufacturing, and Projects.
+- Deepens Procurement as the reference domain.
+- Models Finance, Sales, HR, Service, Logistics, Manufacturing, and Projects with canonical Business Objects, schemas, business keys, state, relationships, and representative capabilities.
+- Adds reusable Party, Identifier, Address, Monetary Amount, Quantity, and Business Object Reference schemas.
 - Adds Capability Invocation, Response, and Discovery schemas.
 - Introduces Discover, Describe, and Invoke semantics with HTTP only as an optional binding convention.
-- Clarifies the hard business-only scope boundary and GREEN provenance policy.
-- Adds explicit compatibility/versioning guidance.
+- Defines YAML/JSON representation policy with JSON Schema 2020-12 as the normative validation language.
+- Publishes an aggregate business catalog in both YAML and JSON.
+- Adds a GREEN provenance register and explicit handling of open semantic references.
+- Clarifies the hard business-only scope boundary and compatibility/versioning guidance.
 
 ## Draft 0.1
 

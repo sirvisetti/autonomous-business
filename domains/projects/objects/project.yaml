@@ -1,0 +1,23 @@
+abcs: "0.2"
+id: projects.project
+version: "0.2"
+title: Project
+domain: projects
+summary: A temporary business endeavor organized to achieve a defined objective within planned scope, time, and responsibility.
+schema: schemas/objects/projects/project.schema.json
+keys:
+  - name: project-number
+    primary: true
+    fields: [number]
+    scope: [owningOrganization]
+stateDimensions:
+  lifecycle: [planned, active, on-hold, completed, cancelled, closed]
+capabilities:
+  - projects.project.get
+  - projects.project.search
+  - projects.project.create
+  - projects.project.update
+  - projects.project.close
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

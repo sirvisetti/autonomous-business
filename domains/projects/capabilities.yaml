@@ -1,6 +1,6 @@
 abcs: "0.2"
 domain: projects
-maturity: initial
+maturity: modeled
 capabilities:
   - {id: projects.project.get, title: Get Project}
   - {id: projects.project.search, title: Search Projects}

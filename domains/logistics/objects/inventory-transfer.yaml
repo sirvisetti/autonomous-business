@@ -1,0 +1,23 @@
+abcs: "0.2"
+id: logistics.inventory-transfer
+version: "0.2"
+title: Inventory Transfer
+domain: logistics
+summary: A business movement of inventory between organizational or physical locations under common ownership or control.
+schema: schemas/objects/logistics/inventory-transfer.schema.json
+keys:
+  - name: transfer-number
+    primary: true
+    fields: [number]
+    scope: [organization]
+stateDimensions:
+  lifecycle: [draft, released, in-transit, received, cancelled]
+capabilities:
+  - logistics.inventory-transfer.create
+  - logistics.inventory-transfer.ship
+  - logistics.inventory-transfer.receive
+provenance:
+  policy: GREEN
+  sources:
+    - Sirvisetti original canonical model
+    - OASIS UBL 2.4 (semantic reference only)

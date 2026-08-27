@@ -1,0 +1,17 @@
+abcs: "0.2"
+id: service.service-request.complete
+version: "0.2"
+title: Complete Service Request
+domain: service
+kind: command
+summary: Record that the requested business service has been completed.
+objects:
+  - object: service.service-request
+    role: primary
+preconditions:
+  lifecycle: in-progress
+effects:
+  lifecycle: completed
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,15 @@
+abcs: "0.2"
+id: manufacturing.material-issue.create
+version: "0.2"
+title: Create Material Issue
+domain: manufacturing
+kind: command
+summary: Record material issued or consumed for manufacturing work.
+objects:
+  - object: manufacturing.material-issue
+    role: primary
+effects:
+  lifecycle: recorded
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model, Eclipse Tractus-X semantic models (CC-BY-4.0; semantic reference only)]
