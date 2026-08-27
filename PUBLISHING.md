@@ -4,7 +4,7 @@ ABCS uses GitHub as the source of truth and Netlify for continuous production de
 
 ## Production flow
 
-1. Requested ABCS changes are applied to `sirvisetti/autonomy-capability`.
+1. Requested ABCS changes are applied to `sirvisetti/autonomous-business`.
 2. Production-ready changes are committed to `main`.
 3. Netlify automatically deploys `main`.
 4. The production site is published at `https://abcs.sirvisetti.com`.

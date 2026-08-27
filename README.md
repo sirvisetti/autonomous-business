@@ -1,6 +1,6 @@
-# Autonomy Business Capability Specification (ABCS)
+# Autonomous Business Capability Specification (ABCS)
 
-ABCS is an open, vendor-neutral specification created by Sirvisetti for describing business capabilities independently of application vendors and implementation technologies.
+ABCS is an open, vendor-neutral specification created and open-sourced by Sirvisetti for describing business capabilities independently of application vendors and implementation technologies, providing a common foundation for safe, governed autonomous operation.
 
 **Current status:** Draft 0.1
 
