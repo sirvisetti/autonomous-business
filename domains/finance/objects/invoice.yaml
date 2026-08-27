@@ -1,0 +1,54 @@
+abcs: '0.2'
+id: finance.invoice
+version: '0.2'
+title: Invoice
+domain: finance
+summary: A financial document issued by one party to another that states amounts due for goods, services, or other obligations.
+schema: schemas/objects/finance/invoice.schema.json
+keys:
+- name: invoice-number
+  primary: true
+  fields:
+  - number
+  scope:
+  - issuer
+relationships:
+  payments:
+    target: finance.payment
+    cardinality: many
+    required: false
+  purchaseOrder:
+    target: procurement.purchase-order
+    cardinality: one
+    required: false
+  salesOrder:
+    target: sales.sales-order
+    cardinality: one
+    required: false
+stateDimensions:
+  lifecycle:
+  - draft
+  - issued
+  - cancelled
+  approval:
+  - not-required
+  - not-submitted
+  - pending
+  - approved
+  - rejected
+  settlement:
+  - unpaid
+  - partially-paid
+  - paid
+  - written-off
+capabilities:
+- finance.invoice.get
+- finance.invoice.search
+- finance.invoice.create
+- finance.invoice.submit
+- finance.invoice.approve
+- finance.invoice.cancel
+provenance:
+  policy: GREEN
+  sources:
+  - Sirvisetti original canonical model
