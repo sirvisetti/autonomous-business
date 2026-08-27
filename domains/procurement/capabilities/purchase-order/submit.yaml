@@ -1,0 +1,21 @@
+abcs: "0.2"
+id: procurement.purchase-order.submit
+version: "0.2"
+title: Submit Purchase Order
+domain: procurement
+kind: command
+summary: Submit a purchase order into its applicable business review, approval, or receiving flow.
+objects:
+  - object: procurement.purchase-order
+    role: primary
+input:
+  schema: schemas/objects/procurement/purchase-order.schema.json
+output:
+  schema: schemas/objects/procurement/purchase-order.schema.json
+preconditions:
+  lifecycle: draft
+effects:
+  approval: pending
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

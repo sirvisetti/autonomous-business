@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/capability-envelope.schema.json",
+  "title": "ABCS Capability Invocation Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["abcs", "capability", "requestId", "payload"],
+  "properties": {
+    "abcs": {"type": "string", "const": "0.2"},
+    "capability": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "requestId": {"type": "string", "minLength": 1},
+    "from": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "to": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "payload": {}
+  }
+}

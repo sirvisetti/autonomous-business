@@ -3,8 +3,9 @@
   <url><loc>https://abcs.sirvisetti.com/</loc></url>
   <url><loc>https://abcs.sirvisetti.com/specification.html</loc></url>
   <url><loc>https://abcs.sirvisetti.com/concepts.html</loc></url>
+  <url><loc>https://abcs.sirvisetti.com/domains.html</loc></url>
+  <url><loc>https://abcs.sirvisetti.com/business-objects.html</loc></url>
+  <url><loc>https://abcs.sirvisetti.com/capability-service.html</loc></url>
   <url><loc>https://abcs.sirvisetti.com/procurement.html</loc></url>
   <url><loc>https://abcs.sirvisetti.com/governance.html</loc></url>
-  <url><loc>https://abcs.sirvisetti.com/schemas/capability.schema.json</loc></url>
-  <url><loc>https://abcs.sirvisetti.com/domains/procurement/capabilities.yaml</loc></url>
 </urlset>

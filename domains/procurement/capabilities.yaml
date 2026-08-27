@@ -1,6 +1,21 @@
-abcs: "0.1"
+abcs: "0.2"
 domain: procurement
+maturity: reference
 capabilities:
+  - id: procurement.purchase-requisition.get
+    title: Get Purchase Requisition
+  - id: procurement.purchase-requisition.search
+    title: Search Purchase Requisitions
+  - id: procurement.purchase-requisition.create
+    title: Create Purchase Requisition
+  - id: procurement.purchase-requisition.submit
+    title: Submit Purchase Requisition
+  - id: procurement.purchase-requisition.approve
+    title: Approve Purchase Requisition
+  - id: procurement.purchase-requisition.reject
+    title: Reject Purchase Requisition
+  - id: procurement.purchase-requisition.cancel
+    title: Cancel Purchase Requisition
   - id: procurement.purchase-order.get
     title: Get Purchase Order
   - id: procurement.purchase-order.search
@@ -23,5 +38,9 @@ capabilities:
     title: Search Suppliers
   - id: procurement.receipt.get
     title: Get Receipt
+  - id: procurement.receipt.search
+    title: Search Receipts
   - id: procurement.receipt.create
     title: Create Receipt
+  - id: procurement.receipt.reverse
+    title: Reverse Receipt

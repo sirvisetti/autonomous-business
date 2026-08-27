@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/common/quantity.schema.json",
+  "title": "ABCS Quantity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["value", "unit"],
+  "properties": {
+    "value": {"type": "number"},
+    "unit": {"type": "string", "minLength": 1}
+  }
+}

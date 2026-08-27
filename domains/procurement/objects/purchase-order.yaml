@@ -1,0 +1,42 @@
+abcs: "0.2"
+id: procurement.purchase-order
+version: "0.2"
+title: Purchase Order
+domain: procurement
+summary: A commercial purchasing document issued by a buyer to a supplier authorizing the purchase of goods or services.
+schema: schemas/objects/procurement/purchase-order.schema.json
+keys:
+  - name: purchase-order-number
+    primary: true
+    fields: [number]
+    scope: [buyer]
+relationships:
+  supplier:
+    target: procurement.supplier
+    cardinality: one
+    required: true
+  requisitions:
+    target: procurement.purchase-requisition
+    cardinality: many
+    required: false
+  receipts:
+    target: procurement.receipt
+    cardinality: many
+    required: false
+stateDimensions:
+  lifecycle: [draft, open, closed, cancelled]
+  approval: [not-required, not-submitted, pending, approved, rejected]
+  fulfillment: [not-received, partially-received, received]
+  invoicing: [not-invoiced, partially-invoiced, invoiced]
+capabilities:
+  - procurement.purchase-order.get
+  - procurement.purchase-order.search
+  - procurement.purchase-order.create
+  - procurement.purchase-order.update
+  - procurement.purchase-order.submit
+  - procurement.purchase-order.approve
+  - procurement.purchase-order.reject
+  - procurement.purchase-order.cancel
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

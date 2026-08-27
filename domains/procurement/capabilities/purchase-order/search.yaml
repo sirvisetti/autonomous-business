@@ -1,0 +1,19 @@
+abcs: "0.2"
+id: procurement.purchase-order.search
+version: "0.2"
+title: Search Purchase Orders
+domain: procurement
+kind: query
+summary: Find purchase orders using canonical business search criteria.
+objects:
+  - object: procurement.purchase-order
+    role: output
+input:
+  schema: schemas/capabilities/procurement/purchase-order-search-input.schema.json
+output:
+  schema: schemas/capabilities/procurement/purchase-order-search-output.schema.json
+relationships:
+  related: [procurement.purchase-order.get]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

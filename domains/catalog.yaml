@@ -1,0 +1,26 @@
+abcs: "0.2"
+domains:
+  - id: procurement
+    title: Procurement
+    maturity: reference
+  - id: finance
+    title: Finance
+    maturity: initial
+  - id: sales
+    title: Sales
+    maturity: initial
+  - id: hr
+    title: Human Resources
+    maturity: initial
+  - id: service
+    title: Service
+    maturity: initial
+  - id: logistics
+    title: Logistics
+    maturity: initial
+  - id: manufacturing
+    title: Manufacturing
+    maturity: initial
+  - id: projects
+    title: Projects
+    maturity: initial

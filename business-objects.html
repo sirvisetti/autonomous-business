@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Business Objects · ABCS Draft 0.2</title><meta name="description" content="Canonical ABCS Business Object model"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="stylesheet" href="/assets/styles.css"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/"><img src="/assets/sirvisetti-logo.png" alt="Sirvisetti"><span class="brand-sep"></span><span class="brand-title">ABCS</span></a><nav class="navlinks"><a href="/specification.html">Specification</a><a href="/concepts.html">Concepts</a><a href="/domains.html">Domains</a><a href="/procurement.html">Procurement</a><a href="/capability-service.html">Invocation</a><a href="/governance.html">Governance</a><a href="https://github.com/sirvisetti/autonomous-business">GitHub</a></nav><span class="mobiletag">Draft 0.2</span></div></header><main class="section"><div class="wrap prose"><span class="eyebrow"><span class="dot"></span>Canonical semantics</span><h1>Business Objects</h1><p>A Business Object defines canonical business information used by capabilities. It is application-neutral and is not an execution primitive.</p><h2>Definition model</h2><p>A canonical Business Object may define its identifier, business definition, JSON Schema, business keys and key scope, typed relationships, lifecycle/state dimensions, related capabilities, version and provenance.</p><pre class="code">abcs: "0.2"
+id: procurement.purchase-order
+title: Purchase Order
+schema: schemas/objects/procurement/purchase-order.schema.json
+keys:
+  - name: purchase-order-number
+    fields: [number]
+    scope: [buyer]
+relationships:
+  supplier:
+    target: procurement.supplier
+    cardinality: one
+  receipts:
+    target: procurement.receipt
+    cardinality: many</pre><h2>Business keys, not artificial global IDs</h2><p>ABCS distinguishes the identity of an object type from the identity of a business record. <code>procurement.purchase-order</code> identifies the canonical object type. An individual Purchase Order may be identified by a business number scoped to a buyer or organization. ABCS does not require every enterprise record to acquire an artificial global UUID.</p><pre class="code">{
+  "object": "procurement.purchase-order",
+  "key": {
+    "number": "4500012345",
+    "buyer": "urn:example:walmart"
+  }
+}</pre><h2>Canonical fields</h2><p>Canonical JSON property names and paths form the stable field vocabulary. Application Packs or other implementations map native application fields to those canonical paths. ABCS does not create separate field IDs for every attribute.</p><h2>Reusable business primitives</h2><p>Draft 0.2 introduces reusable schemas for Party, Identifier, Address, Monetary Amount, Quantity and Business Object Reference. These prevent Procurement, Finance, Sales and other domains from independently redefining the same business semantics.</p><h2>Party and contextual roles</h2><p>A Party may be an organization or person. Supplier, Customer, Buyer, Seller, Payer, Payee and Carrier are contextual business roles. A single organization can therefore participate in different domains without becoming unrelated canonical identities.</p><h2>Multidimensional state</h2><p>Complex business objects should not collapse independent state dimensions into one giant status value. The reference Purchase Order distinguishes lifecycle, approval, fulfillment and invoicing state.</p><pre class="code">{
+  "status": {
+    "lifecycle": "open",
+    "approval": "approved",
+    "fulfillment": "partially-received",
+    "invoicing": "not-invoiced"
+  }
+}</pre><h2>Closed canonical schemas</h2><p>Draft 0.2 canonical schemas are deliberately strict. Vendor-specific application fields, routing metadata and implementation details do not belong in canonical payloads. A future extension mechanism should be added only if practical implementations prove one is necessary.</p><div class="callout boundary"><strong>ABCS object schemas describe business semantics.</strong> SAP fields, Oracle row IDs, adapter IDs, environment IDs, API endpoints and similar implementation data remain outside the canonical object.</div></div></main><footer class="footer"><div class="wrap footerrow"><div>© Sirvisetti. All rights reserved. · ABCS specification content is made available under Apache License 2.0.</div><div class="footerlinks"><a href="/governance.html">Governance</a><a href="/LICENSE.md">License</a><a href="https://github.com/sirvisetti/autonomous-business">GitHub</a></div></div></footer></body></html>

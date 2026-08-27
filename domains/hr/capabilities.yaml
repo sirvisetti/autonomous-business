@@ -1,0 +1,18 @@
+abcs: "0.2"
+domain: hr
+maturity: initial
+capabilities:
+  - {id: hr.worker.get, title: Get Worker}
+  - {id: hr.worker.search, title: Search Workers}
+  - {id: hr.position.get, title: Get Position}
+  - {id: hr.position.search, title: Search Positions}
+  - {id: hr.leave-request.get, title: Get Leave Request}
+  - {id: hr.leave-request.create, title: Create Leave Request}
+  - {id: hr.leave-request.submit, title: Submit Leave Request}
+  - {id: hr.leave-request.approve, title: Approve Leave Request}
+  - {id: hr.leave-request.reject, title: Reject Leave Request}
+  - {id: hr.leave-request.cancel, title: Cancel Leave Request}
+  - {id: hr.payroll-run.get, title: Get Payroll Run}
+  - {id: hr.payroll-run.create, title: Create Payroll Run}
+  - {id: hr.payroll-run.schedule, title: Schedule Payroll Run}
+  - {id: hr.payroll-run.approve, title: Approve Payroll Run}

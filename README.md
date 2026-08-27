@@ -1,18 +1,45 @@
 # Autonomous Business Capability Specification (ABCS)
 
-ABCS is an open, vendor-neutral specification created and open-sourced by Sirvisetti for describing business capabilities independently of application vendors and implementation technologies, providing a common foundation for safe, governed autonomous operation.
+ABCS is an open, vendor-neutral specification created and open-sourced by Sirvisetti for describing business capabilities independently of application vendors and implementation technologies.
 
-**Current status:** Draft 0.1
+**Current status:** Draft 0.2
 
 Public site: https://abcs.sirvisetti.com
+
+## Core principle
+
+**Capability is the universal executable primitive.** ABCS domains classify enduring areas of business meaning; they are not technology categories or capability types.
+
+ABCS standardizes business meaning: canonical capability identities, business objects, business relationships, business state, contracts, and the minimum semantics needed to discover and invoke capabilities consistently.
+
+ABCS does **not** standardize middleware, integration technology, automation engines, schedulers, workflow engines, agents, databases, message brokers, authentication products, EDI transports, or application-vendor APIs.
+
+A useful scope test is: **Would this capability still make business sense if humans performed the work manually and all implementation technology disappeared?** If not, it does not belong in ABCS.
+
+## Draft 0.2 scope
+
+Draft 0.2 establishes:
+
+- Capability as the universal executable primitive.
+- Business Domain as classification and namespace.
+- Canonical Business Objects, keys, fields, relationships, and multidimensional state.
+- Initial business domains: Procurement, Finance, Sales, HR, Service, Logistics, Manufacturing, and Projects.
+- Procurement as the first deep reference domain.
+- A small transport-neutral Capability Invocation Envelope and response envelope.
+- Discovery, description, and invocation semantics, with HTTP shown only as an optional binding convention.
+- Compatibility/versioning and GREEN-source provenance rules.
 
 ## Repository layout
 
 - `specification/` — versioned specification text
-- `schemas/` — machine-readable validation schemas
-- `domains/` — canonical domain capability sets
-- `examples/` — example capability definitions
+- `schemas/` — machine-readable JSON Schema 2020-12 definitions
+- `domains/` — canonical business-domain catalogs and definitions
+- `examples/` — example capability and envelope documents
 - root HTML/CSS — static public site deployed by Netlify
+
+## Relationship to Sirvisetti Autonomy
+
+Sirvisetti Autonomy is a reference and commercial implementation of ABCS. ABCS itself is open and implementation-neutral; no ABCS implementation requires Sirvisetti Autonomy.
 
 ## License
 

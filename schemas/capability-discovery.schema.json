@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/capability-discovery.schema.json",
+  "title": "ABCS Capability Discovery Document",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["abcs", "capabilities"],
+  "properties": {
+    "abcs": {"type": "string", "const": "0.2"},
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "domain", "summary"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*$"},
+          "version": {"type": "string"},
+          "title": {"type": "string", "minLength": 1},
+          "domain": {"type": "string", "minLength": 1},
+          "summary": {"type": "string", "minLength": 1},
+          "definition": {"type": "string"}
+        }
+      }
+    }
+  }
+}

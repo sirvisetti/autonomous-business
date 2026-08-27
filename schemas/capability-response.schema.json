@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/capability-response.schema.json",
+  "title": "ABCS Capability Response Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["abcs", "capability", "requestId", "outcome"],
+  "properties": {
+    "abcs": {"type": "string", "const": "0.2"},
+    "capability": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "requestId": {"type": "string", "minLength": 1},
+    "outcome": {"type": "string", "enum": ["completed", "accepted", "rejected"]},
+    "payload": {},
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "message"],
+        "properties": {
+          "code": {"type": "string", "minLength": 1},
+          "message": {"type": "string", "minLength": 1},
+          "details": {}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+abcs: "0.2"
+id: procurement.purchase-order.approve
+version: "0.2"
+title: Approve Purchase Order
+domain: procurement
+kind: command
+summary: Record an authorized approval decision for a purchase order.
+objects:
+  - object: procurement.purchase-order
+    role: primary
+input:
+  schema: schemas/capabilities/procurement/purchase-order-approve-input.schema.json
+output:
+  schema: schemas/objects/procurement/purchase-order.schema.json
+preconditions:
+  approval: pending
+effects:
+  approval: approved
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

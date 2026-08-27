@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/capabilities/procurement/purchase-order-get-input.schema.json",
+  "title": "Get Purchase Order Input",
+  "$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"
+}

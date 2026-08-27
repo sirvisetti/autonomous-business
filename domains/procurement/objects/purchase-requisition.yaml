@@ -1,0 +1,22 @@
+abcs: "0.2"
+id: procurement.purchase-requisition
+version: "0.2"
+title: Purchase Requisition
+domain: procurement
+summary: An internal business request for goods or services to be purchased.
+schema: schemas/objects/procurement/purchase-requisition.schema.json
+keys:
+  - name: purchase-requisition-number
+    primary: true
+    fields: [number]
+relationships:
+  purchaseOrders:
+    target: procurement.purchase-order
+    cardinality: many
+    required: false
+stateDimensions:
+  lifecycle: [draft, open, fulfilled, cancelled]
+  approval: [not-submitted, pending, approved, rejected]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

@@ -1,0 +1,15 @@
+abcs: "0.2"
+domain: projects
+maturity: initial
+capabilities:
+  - {id: projects.project.get, title: Get Project}
+  - {id: projects.project.search, title: Search Projects}
+  - {id: projects.project.create, title: Create Project}
+  - {id: projects.project.update, title: Update Project}
+  - {id: projects.project.close, title: Close Project}
+  - {id: projects.project-task.create, title: Create Project Task}
+  - {id: projects.project-task.assign, title: Assign Project Task}
+  - {id: projects.project-task.complete, title: Complete Project Task}
+  - {id: projects.project-time.submit, title: Submit Project Time}
+  - {id: projects.project-time.approve, title: Approve Project Time}
+  - {id: projects.project-cost.record, title: Record Project Cost}

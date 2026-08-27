@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/common/party.schema.json",
+  "title": "ABCS Party",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "name"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "type": {"type": "string", "enum": ["organization", "person"]},
+    "name": {"type": "string", "minLength": 1},
+    "identifiers": {"type": "array", "items": {"$ref": "https://abcs.sirvisetti.com/schemas/common/identifier.schema.json"}},
+    "addresses": {"type": "array", "items": {"$ref": "https://abcs.sirvisetti.com/schemas/common/address.schema.json"}}
+  }
+}

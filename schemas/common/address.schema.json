@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/common/address.schema.json",
+  "title": "ABCS Address",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "lines": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "city": {"type": "string"},
+    "region": {"type": "string"},
+    "postalCode": {"type": "string"},
+    "countryCode": {"type": "string", "pattern": "^[A-Z]{2}$"}
+  }
+}

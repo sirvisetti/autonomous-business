@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/procurement/supplier.schema.json",
+  "title": "ABCS Procurement Supplier",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["supplierNumber", "party", "status"],
+  "properties": {
+    "supplierNumber": {"type": "string", "minLength": 1},
+    "party": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party.schema.json"},
+    "status": {"type": "string", "enum": ["active", "inactive", "on-hold"]},
+    "paymentTerms": {"type": "string"},
+    "sites": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["code"], "properties": {"code": {"type": "string"}, "address": {"$ref": "https://abcs.sirvisetti.com/schemas/common/address.schema.json"}}}}
+  }
+}

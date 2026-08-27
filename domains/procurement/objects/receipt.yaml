@@ -1,0 +1,21 @@
+abcs: "0.2"
+id: procurement.receipt
+version: "0.2"
+title: Receipt
+domain: procurement
+summary: A business record that goods or services were received against an applicable purchasing document.
+schema: schemas/objects/procurement/receipt.schema.json
+keys:
+  - name: receipt-number
+    primary: true
+    fields: [receiptNumber]
+relationships:
+  purchaseOrder:
+    target: procurement.purchase-order
+    cardinality: one
+    required: true
+stateDimensions:
+  lifecycle: [recorded, reversed]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

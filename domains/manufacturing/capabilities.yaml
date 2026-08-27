@@ -1,0 +1,14 @@
+abcs: "0.2"
+domain: manufacturing
+maturity: initial
+capabilities:
+  - {id: manufacturing.work-order.get, title: Get Work Order}
+  - {id: manufacturing.work-order.search, title: Search Work Orders}
+  - {id: manufacturing.work-order.create, title: Create Work Order}
+  - {id: manufacturing.work-order.release, title: Release Work Order}
+  - {id: manufacturing.work-order.complete, title: Complete Work Order}
+  - {id: manufacturing.work-order.cancel, title: Cancel Work Order}
+  - {id: manufacturing.production-order.get, title: Get Production Order}
+  - {id: manufacturing.production-order.release, title: Release Production Order}
+  - {id: manufacturing.production-order.complete, title: Complete Production Order}
+  - {id: manufacturing.material-issue.create, title: Create Material Issue}

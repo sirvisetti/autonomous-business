@@ -1,0 +1,21 @@
+abcs: "0.2"
+id: procurement.supplier
+version: "0.2"
+title: Supplier
+domain: procurement
+summary: A procurement-domain view of a Party that provides goods or services to a buying organization.
+schema: schemas/objects/procurement/supplier.schema.json
+keys:
+  - name: supplier-number
+    primary: true
+    fields: [supplierNumber]
+relationships:
+  purchaseOrders:
+    target: procurement.purchase-order
+    cardinality: many
+    required: false
+stateDimensions:
+  lifecycle: [active, inactive, on-hold]
+provenance:
+  policy: GREEN
+  sources: [Sirvisetti original canonical model]

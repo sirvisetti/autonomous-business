@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/capabilities/procurement/purchase-order-approve-input.schema.json",
+  "title": "Approve Purchase Order Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["purchaseOrder"],
+  "properties": {
+    "purchaseOrder": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "comment": {"type": "string"}
+  }
+}

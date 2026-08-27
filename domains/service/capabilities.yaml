@@ -1,0 +1,15 @@
+abcs: "0.2"
+domain: service
+maturity: initial
+capabilities:
+  - {id: service.customer-case.get, title: Get Customer Case}
+  - {id: service.customer-case.search, title: Search Customer Cases}
+  - {id: service.customer-case.create, title: Create Customer Case}
+  - {id: service.customer-case.assign, title: Assign Customer Case}
+  - {id: service.customer-case.escalate, title: Escalate Customer Case}
+  - {id: service.customer-case.resolve, title: Resolve Customer Case}
+  - {id: service.customer-case.close, title: Close Customer Case}
+  - {id: service.service-request.get, title: Get Service Request}
+  - {id: service.service-request.create, title: Create Service Request}
+  - {id: service.service-request.assign, title: Assign Service Request}
+  - {id: service.service-request.complete, title: Complete Service Request}

@@ -1,7 +1,23 @@
 # Contributing to ABCS
 
-ABCS welcomes practical feedback, issues, and pull requests.
+Contributions to the Autonomous Business Capability Specification are welcome.
 
-Contributions should be vendor-neutral, business-oriented, concise, machine-readable where applicable, and compatible with the project's GREEN-only provenance policy. Do not submit proprietary process taxonomies, paid process-library content, or ambiguously licensed material.
+Before proposing a domain, capability, Business Object or field, verify that it expresses enduring **business meaning**, not implementation technology.
 
-Before proposing a new canonical capability, check for semantic overlap with existing capabilities and explain the intended business meaning independently of any application implementation.
+Use this scope test:
+
+> Would this still make business sense if humans performed the work manually and all implementation technology disappeared?
+
+A proposal should identify:
+
+- the owning business domain
+- the canonical business meaning
+- proposed stable identifier(s)
+- related Business Objects and business relationships
+- business preconditions/effects when relevant
+- compatibility impact
+- provenance/source material
+
+Do not derive canonical definitions from proprietary or licensing-ambiguous frameworks. ABCS follows a GREEN-only provenance policy.
+
+Open an issue or pull request in this repository with the rationale and examples. Draft 0.x definitions may evolve as implementation experience grows.

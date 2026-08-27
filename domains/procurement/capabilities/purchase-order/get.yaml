@@ -13,9 +13,7 @@ input:
 output:
   schema: schemas/objects/procurement/purchase-order.schema.json
 relationships:
-  related:
-    - procurement.purchase-order.search
+  related: [procurement.purchase-order.search]
 provenance:
   policy: GREEN
-  sources:
-    - Sirvisetti original canonical model
+  sources: [Sirvisetti original canonical model]

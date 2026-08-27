@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/objects/procurement/receipt.schema.json",
+  "title": "ABCS Procurement Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["receiptNumber", "purchaseOrder", "receiptDate", "lines", "status"],
+  "properties": {
+    "receiptNumber": {"type": "string", "minLength": 1},
+    "purchaseOrder": {"$ref": "https://abcs.sirvisetti.com/schemas/common/business-object-reference.schema.json"},
+    "receiptDate": {"type": "string", "format": "date"},
+    "receivedBy": {"$ref": "https://abcs.sirvisetti.com/schemas/common/party-reference.schema.json"},
+    "lines": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["lineNumber", "purchaseOrderLineNumber", "quantity"],
+        "properties": {
+          "lineNumber": {"type": "integer", "minimum": 1},
+          "purchaseOrderLineNumber": {"type": "integer", "minimum": 1},
+          "quantity": {"$ref": "https://abcs.sirvisetti.com/schemas/common/quantity.schema.json"},
+          "condition": {"type": "string", "enum": ["accepted", "damaged", "rejected"]}
+        }
+      }
+    },
+    "status": {"type": "string", "enum": ["recorded", "reversed"]}
+  }
+}

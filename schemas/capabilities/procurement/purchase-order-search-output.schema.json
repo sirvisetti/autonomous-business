@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://abcs.sirvisetti.com/schemas/capabilities/procurement/purchase-order-search-output.schema.json",
+  "title": "Search Purchase Orders Output",
+  "type": "array",
+  "items": {"$ref": "https://abcs.sirvisetti.com/schemas/objects/procurement/purchase-order.schema.json"}
+}

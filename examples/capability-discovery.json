@@ -1,0 +1,21 @@
+{
+  "abcs": "0.2",
+  "capabilities": [
+    {
+      "id": "procurement.purchase-order.get",
+      "version": "0.2",
+      "title": "Get Purchase Order",
+      "domain": "procurement",
+      "summary": "Retrieve one purchase order using a supported canonical business key.",
+      "definition": "domains/procurement/capabilities/purchase-order/get.yaml"
+    },
+    {
+      "id": "procurement.purchase-order.submit",
+      "version": "0.2",
+      "title": "Submit Purchase Order",
+      "domain": "procurement",
+      "summary": "Submit a purchase order into its applicable business review, approval, or receiving flow.",
+      "definition": "domains/procurement/capabilities/purchase-order/submit.yaml"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+abcs: "0.2"
+domain: logistics
+maturity: initial
+capabilities:
+  - {id: logistics.shipment.get, title: Get Shipment}
+  - {id: logistics.shipment.search, title: Search Shipments}
+  - {id: logistics.shipment.create, title: Create Shipment}
+  - {id: logistics.shipment.dispatch, title: Dispatch Shipment}
+  - {id: logistics.shipment.notify, title: Notify Shipment}
+  - {id: logistics.shipment.deliver, title: Deliver Shipment}
+  - {id: logistics.delivery.get, title: Get Delivery}
+  - {id: logistics.delivery.confirm, title: Confirm Delivery}
+  - {id: logistics.inventory-transfer.create, title: Create Inventory Transfer}
+  - {id: logistics.inventory-transfer.ship, title: Ship Inventory Transfer}
+  - {id: logistics.inventory-transfer.receive, title: Receive Inventory Transfer}

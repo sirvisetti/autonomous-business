@@ -1,0 +1,28 @@
+{
+  "abcs": "0.2",
+  "capability": "procurement.purchase-order.submit",
+  "requestId": "01JABCSEXAMPLE000000000001",
+  "from": {"id": "urn:example:walmart", "name": "Walmart", "type": "organization"},
+  "to": {"id": "urn:example:walgreens", "name": "Walgreens", "type": "organization"},
+  "payload": {
+    "number": "4500012345",
+    "orderDate": "2026-08-27",
+    "buyer": {"id": "urn:example:walmart", "name": "Walmart", "type": "organization"},
+    "supplier": {"id": "urn:example:walgreens", "name": "Walgreens", "type": "organization"},
+    "currency": "USD",
+    "lines": [
+      {
+        "lineNumber": 1,
+        "item": {"identifier": "ABC123", "description": "Example item"},
+        "quantity": {"value": 100, "unit": "EA"},
+        "unitPrice": {"amount": 4.25, "currency": "USD"}
+      }
+    ],
+    "status": {
+      "lifecycle": "draft",
+      "approval": "not-submitted",
+      "fulfillment": "not-received",
+      "invoicing": "not-invoiced"
+    }
+  }
+}
