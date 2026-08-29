@@ -14,7 +14,7 @@ Normative scope test: a proposed ABCS capability SHOULD still have clear busines
 
 ## 2. Universal primitive
 
-A **Capability** is the universal executable primitive of ABCS. A Capability represents something meaningful the business can do.
+A **Capability** is the universal business primitive of ABCS. A Capability represents something meaningful the business can do. Implementations may make a Capability executable, but execution technology does not define its business meaning.
 
 A **Business Domain** classifies capabilities into enduring areas of business responsibility and provides the first identifier namespace segment. Domains do not define different capability types.
 
@@ -58,7 +58,7 @@ Scheduling may be a valid business operation when the scheduled subject itself h
 
 ## 9. Processes, Policies, and Events
 
-Processes, Policies, Events, Roles, and Relationships are supporting business semantics rather than peer execution primitives. If a process or decision must be externally executable, it is exposed through a Capability whose identifier describes the business action, not the implementation mechanism.
+Processes, Policies, Events, Roles, and Relationships are supporting business semantics rather than peer business primitives. If a process or decision must be externally performed, it is exposed through a Capability whose identifier describes the business action, not the implementation mechanism.
 
 ## 10. Capability invocation envelope
 
