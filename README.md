@@ -11,9 +11,11 @@ Its normative specification is the **Autonomous Business Capability Specificatio
 
 ## Core principle
 
-**Capability is the universal executable primitive.** ABCS domains classify enduring areas of business meaning; they are not technology categories or capability types.
+**Capability is the universal business primitive.** ABCS domains classify enduring areas of business meaning; they are not technology categories or capability types.
 
 Scope test: **Would this capability still make business sense if humans performed the work manually and all implementation technology disappeared?** If not, it does not belong in ABCS.
+
+A capability may be executable by an implementation, but ABCS defines the enduring **business meaning** rather than the execution technology.
 
 ## Draft 0.2 scope
 
@@ -44,7 +46,7 @@ ABCS follows a GREEN-only provenance policy. See `PROVENANCE.md` for reviewed op
 - `domains/` — canonical business-domain catalogs and definitions
 - `catalog/` — aggregate YAML/JSON publication representations
 - `examples/` — example capability and envelope documents
-- root HTML/CSS — ABS public website deployed by Netlify
+- root HTML/CSS — ABS public website deployed with AWS Amplify Hosting
 
 ## Relationship to Sirvisetti Autonomy
 
